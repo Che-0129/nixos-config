@@ -15,7 +15,7 @@
 
     users = {
         mutableUsers = false;
-        users.yuto = {
+        users.che = {
             isNormalUser = true;
             extraGroups = [ "adbusers" "networkmanager" "wheel" ];
             shell = pkgs.fish;

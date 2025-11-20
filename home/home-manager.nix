@@ -11,8 +11,8 @@
     ];
 
     home = {
-        username = "yuto";
-        homeDirectory = "/home/yuto";
+        username = "che";
+        homeDirectory = "/home/che";
         stateVersion = "25.11";
         file = {
             ".config/libfm".source = ./configs/libfm;

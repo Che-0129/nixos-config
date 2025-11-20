@@ -22,7 +22,7 @@
                 nixosConfigurations = {
                     NixOS = inputs.nixpkgs.lib.nixosSystem {
                         system = "x86_64-linux";
-#                        specialArgs = { inherit inputs; };
+                        specialArgs = { inherit inputs; };
                         modules = [
                         ./host/configuration.nix
                         inputs.home-manager.nixosModules.home-manager
@@ -31,8 +31,8 @@
                                 useGlobalPkgs = true;
                                 useUserPackages = true;
                                 backupFileExtension = "hm-backup";
-#                                extraSpecialArgs = { inherit inputs; };
-                                users.yuto = ./home/home-manager.nix;
+                                extraSpecialArgs = { inherit inputs; };
+                                users.che = ./home/home-manager.nix;
                             };
                         }
                         inputs.mango.nixosModules.mango
