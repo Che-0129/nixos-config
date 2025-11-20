@@ -67,7 +67,7 @@ bind=SUPER,C,spawn,uwsm app -- foot
 bind=SUPER,D,spawn,uwsm app -- firefox
 bind=SUPER+CTRL,D,spawn,uwsm app -- firefox --private-window
 bind=SUPER,space,spawn,uwsm app -- fuzzel
-bind=SUPER+SHIFT+CTRL,space,setkeymode,power_menu
+bind=SUPER+SHIFT,space,setkeymode,power_menu
 bind=SUPER,V,spawn_shell,uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy
 bind=SUPER,E,spawn,uwsm app -- pcmanfm
 
