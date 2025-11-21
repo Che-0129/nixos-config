@@ -4,7 +4,7 @@
     programs.firefox = {
         enable = true;
         languagePacks = [ "ja" ];
-        profiles.default.settings = {
+        profiles.che.settings = {
             "browser.tabs.closeWindowWithLastTab" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
             "font.name.sans-serif.ja" = "Noto Sans CJK JP";
