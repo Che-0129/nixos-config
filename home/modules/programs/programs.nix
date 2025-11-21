@@ -8,6 +8,7 @@
         ./modules/fuzzel.nix
         ./modules/neovim.nix
         ./modules/swaylock.nix
+        ./modules/thunderbird.nix
         ./modules/waybar.nix
     ];
 }
