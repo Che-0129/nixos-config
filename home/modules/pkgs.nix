@@ -19,7 +19,6 @@
         rustup
         swaybg
         telegram-desktop
-        thunderbird
         trash-cli
         unzip
         vlc
