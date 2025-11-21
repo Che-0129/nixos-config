@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./hardware-configuration.nix
+        /etc/nixos/hardware-configuration.nix
         ./modules/pkgs.nix
         ./modules/programs.nix
         ./modules/services.nix
