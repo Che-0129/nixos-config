@@ -72,7 +72,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 nixos-install
 ```
 
-## 再起動後ログインしたらこのリポジトリをクローンしてビルド
+## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
 ```bash
 git clone git@github.com:Che-0129/nixos-dots.git ~/.nixos-dots
 sudo nixos-rebuild switch --flake ~/.nixos-dots#NixOS --impure
