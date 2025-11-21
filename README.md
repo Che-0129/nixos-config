@@ -54,6 +54,7 @@ vim /mnt/etc/nixos/configuration.nix
 ```
 ```nix
 # 以下のように編集または追記
+networking.hostName = "NixOS";
 console.keyMap = "jp106";
 users.users.che = {
   isNormalUser = true;
@@ -74,6 +75,6 @@ nixos-install
 
 ## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
 ```bash
-git clone git@github.com:Che-0129/nixos-dots.git ~/.nixos-dots
+git clone https://github.com/Che-0129/nixos-dots.git ~/.nixos-dots
 sudo nixos-rebuild switch --flake ~/.nixos-dots#NixOS --impure
 ```
