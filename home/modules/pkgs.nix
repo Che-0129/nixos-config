@@ -6,7 +6,6 @@
         bat
         discord
         eza
-        firefox
         gcc
         gimp
         git
