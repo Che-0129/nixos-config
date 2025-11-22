@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ inputs, ... }:
 
 {
     imports = [ inputs.mango.hmModules.mango ];

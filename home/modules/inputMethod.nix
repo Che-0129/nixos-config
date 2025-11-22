@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
     i18n.inputMethod = {
@@ -7,7 +7,7 @@
         fcitx5 = {
             addons = with pkgs; [
                 fcitx5-mozc-ut
-                (pkgs.callPackage ./fcitx5-arc-theme.nix {})
+                (callPackage ./fcitx5-arc-theme.nix {})
             ];
             settings = {
                 globalOptions = {

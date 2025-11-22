@@ -1,8 +1,4 @@
-{
-    stdenvNoCC,
-    fetchFromGitHub,
-    lib,
-}:
+{ stdenvNoCC, fetchFromGitHub, lib }:
 
 stdenvNoCC.mkDerivation {
     pname = "fcitx5-arc-theme";
