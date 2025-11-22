@@ -4,6 +4,11 @@
     programs.firefox = {
         enable = true;
         languagePacks = [ "ja" ];
+        policies.ExtensionSettings."enhancerforyoutube@maximerf.addons.mozilla.org" = {
+            installation_mode = "normal_installed";
+            install_url = "https://www.mrfdev.com/downloads/enhancer_for_youtube-2.0.130.1.xpi";
+            updates_disabled = false;
+        };
         profiles.che.settings = {
             "browser.tabs.closeWindowWithLastTab" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
