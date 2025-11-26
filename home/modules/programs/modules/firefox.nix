@@ -17,7 +17,6 @@
                     widget-overflow-fixed-list = [];
                     unified-extensions-area = [];
                     nav-bar = [
-                        "sidebar-button"
                         "back-button"
                         "forward-button"
                         "stop-reload-button"
@@ -25,7 +24,7 @@
                         "urlbar-container"
                         "customizableui-special-spring3"
                         "vertical-spacer"
-                        "unified-extensions-button"
+                        "downloads-button"
                     ];
                     toolbar-menubar = [ "menubar-items" ];
                     TabsToolbar = [];
@@ -33,11 +32,15 @@
                     PersonalToolbar = [
                         "import-button"
                         "personal-bookmarks"
-                    ];
+                    ]
                 };
                 seen = [
                     "developer-button"
                     "screenshot-button"
+                    "jid1-zsmfwe4lcaw9oq_jetpack-browser-action"
+                    "_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action"
+                    "enhancerforyoutube_maximerf_addons_mozilla_org-browser-action"
+                    "ublock0_raymondhill_net-browser-action"
                 ];
                 dirtyAreaCache = [
                     "nav-bar"
@@ -45,9 +48,10 @@
                     "vertical-tabs"
                     "PersonalToolbar"
                     "toolbar-menubar"
+                    "unified-extensions-area"
                 ];
                 currentVersion = 23;
-                newElementCount = 10;
+                newElementCount = 13;
             };
             "font.name.sans-serif.ja" = "Noto Sans CJK JP";
             "intl.locale.requested" = "ja";
