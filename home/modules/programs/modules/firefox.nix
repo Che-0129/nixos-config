@@ -32,7 +32,7 @@
                     PersonalToolbar = [
                         "import-button"
                         "personal-bookmarks"
-                    ]
+                    ];
                 };
                 seen = [
                     "developer-button"
