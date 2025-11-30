@@ -12,6 +12,8 @@
             dl = "cd ~/Downloads";
             rb = "systemctl reboot";
             sd = "systemctl poweroff";
+            nrb = "sudo nixos-rebuild switch --flake ~/.nixos-dots#NixOS --impure";
+            nfu = "nix flake update ~/.nixos-dots";
             rm = "trash-put";
             ls = "eza --icons";
             la = "eza --icons -a";
@@ -21,6 +23,9 @@
             c = "clear";
             cls = "clear && ls";
             gc = "git clone";
+            ga = "git add";
+            gcm = "git commit -m";
+            gp = "git push";
             aria2 = "aria2c -x16 -s16";
             untar = "tar -xvf";
         };
