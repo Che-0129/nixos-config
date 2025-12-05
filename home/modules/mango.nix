@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
     imports = [ inputs.mango.hmModules.mango ];
@@ -6,12 +6,12 @@
     wayland.windowManager.mango = {
         enable = true;
         settings = ''
-exec-once=uwsm app -- swaybg -i ~/.nixos-dots/wallpaper/nix-wallpaper-simple-blue.png
-exec-once=uwsm app -- waybar
-exec-once=uwsm app -- fcitx5
-exec-once=uwsm app -- wl-paste -t text -w cliphist store
-exec-once=uwsm app -- lxsession
-exec-once=uwsm app -- sway-audio-idle-inhibit
+exec-once=uwsm app -- ${lib.getExe pkgs.swaybg} -i ~/.nixos-dots/wallpaper/nix-wallpaper-simple-blue.png
+exec-once=uwsm app -- ${lib.getExe pkgs.waybar}
+exec-once=uwsm app -- ${lib.getExe pkgs.fcitx5}
+exec-once=uwsm app -- ${lib.getExe' pkgs.wl-clipboard "wl-paste"} -t text -w cliphist store
+exec-once=uwsm app -- ${lib.getExe pkgs.lxsession}
+exec-once=uwsm app -- ${lib.getExe pkgs.sway-audio-idle-inhibit}
 
 #Window effect
 border_radius=8
