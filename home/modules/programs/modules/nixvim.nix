@@ -23,7 +23,23 @@
             guicursor = "i:ver100-blinkon500-blinkoff500";
         };
         plugins = {
+            onenord.enable = true;
             lualine.enable = true;
+            smear-cursor = {
+                enable = true;
+                settings = {
+                    trailing_stiffness = 0.5;
+                    stiffness_insert_mode = 0.7;
+                    trailing_stiffness_insert_mode = 0.7;
+                    damping = 0.8;
+                    damping_insert_mode = 0.8;
+                    distance_stop_animating = 0.5;
+                };
+            };
+            neoscroll.enable = true;
+            whitespace-nvim.enable = true;
+            nvim-colorizer.enable = true;
+            which-key.enable = true;
         };
     };
 }
