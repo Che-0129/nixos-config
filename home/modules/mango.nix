@@ -37,7 +37,6 @@ cursor_theme=Adwaita
 drag_tile_to_tile=1
 
 #Keyboard
-repeat_rate=30
 repeat_delay=300
 xkb_rules_layout=jp
 
@@ -45,7 +44,7 @@ xkb_rules_layout=jp
 tap_to_click=0
 trackpad_natural_scrolling=1
 middle_button_emulation=1
-accel_speed=-0.15
+accel_speed=-0.85
 
 #Appearance
 gappih=2
