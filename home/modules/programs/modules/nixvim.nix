@@ -22,6 +22,10 @@
             termguicolors = true;
             guicursor = "i:ver100-blinkon500-blinkoff500";
         };
-        plugins.onenord.enable = true;
+        plugins = {
+            lualine.enable = true;
+            neoscroll.enable = true;
+            which-key.enable = true;
+        };
     };
 }
