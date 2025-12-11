@@ -9,6 +9,8 @@
             onenord-nvim
             blink-pairs
             blink-indent
+            mason-nvim
+            mason-lspconfig-nvim
         ];
         opts = {
             number = true;
@@ -22,7 +24,7 @@
             smartindent = true;
             scrolloff = 5;
             sidescrolloff = 5;
-            mouse = null;
+            mouse = "";
             hlsearch = false;
             termguicolors = true;
             guicursor = "i:ver100-blinkon500-blinkoff500";
