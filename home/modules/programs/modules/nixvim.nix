@@ -27,7 +27,9 @@
             guicursor = "i:ver100-blinkon500-blinkoff500";
         };
         extraConfigLua = ''
-require("blink.pairs").setup({})
+require("blink.pairs").setup()
+require("modes").setup()
+
 vim.api.nvim_create_autocmd("VimLeave", {
     pattern = "*",
     command = "set guicursor=a:ver25-blinkon500-blinkoff500",
