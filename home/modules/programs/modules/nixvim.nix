@@ -11,7 +11,7 @@
             (pkgs.vimUtils.buildVimPlugin {
                 pname = "modes-nvim";
                 version = "2025-05-27";
-                src = modes-nvim;
+                src = inputs.modes-nvim;
             })
         ];
         opts = {
