@@ -40,9 +40,46 @@
             neoscroll.enable = true;
             whitespace-nvim.enable = true;
             nvim-colorizer.enable = true;
+            illuminate.enable = true;
             which-key.enable = true;
+            blink-cmp = {
+                enable = true;
+                settings = {
+                    completion = {
+                        documentation = {
+                            auto_show = true;
+                            window.border = "rounded";
+                        };
+                        menu.border = "rounded";
+                    };
+                    keymap = {
+                        preset = "enter";
+                        "<C-y>" = [ "accept" "fallback" ];
+                    };
+                    sources.default = [
+                        "lsp"
+                        "path"
+                        "snippets"
+                        "buffer"
+                    ];
+                };
+            };
             blink-pairs.enble = true;
             blink-indent.enable = true;
+            luasnip.enable = true;
+            friendly-snippets.enable = true;
+            lsp = {
+                enable = true;
+                servers = {
+                    clangd.enable = true;
+                    cssls.enable = true;
+                    html.enable = true;
+                    lua_ls.enable = true;
+                    pyright.enable = true;
+                };
+            };
+            mason.enable = true;
+            mason-lspconfig.enable = true;
         };
     };
 }
