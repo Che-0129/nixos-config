@@ -66,7 +66,7 @@ bind=SUPER,C,spawn,uwsm app -- foot
 bind=SUPER,D,spawn,uwsm app -- firefox
 bind=SUPER+CTRL,D,spawn,uwsm app -- firefox --private-window
 bindr=SUPER,space,spawn,uwsm app -- fuzzel
-bindr=SUPER+SHIFT,space,setkeymode,power_menu
+bind=SUPER+SHIFT,space,setkeymode,power_menu
 bind=SUPER,V,spawn_shell,uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy
 bind=SUPER,E,spawn,uwsm app -- pcmanfm
 
@@ -99,13 +99,13 @@ bind=SUPER,T,setlayout,tile
 bind=SUPER,S,setlayout,scroller
 
 keymode=power_menu
-bind=NONE,Q,setkeymode,default
-bind=NONE,esc,setkeymode,default
-bind=NONE,R,spawn,systemctl reboot
-bind=NONE,W,spawn,systemctl reboot --boot-loader-entry auto-windows
 bind=NONE,S,spawn,systemctl suspend
 bind=NONE,S,setkeymode,default
+bind=NONE,R,spawn,systemctl reboot
+bind=NONE,W,spawn,systemctl reboot --boot-loader-entry auto-windows
 bind=NONE,P,spawn,systemctl poweroff
+bind=NONE,Q,setkeymode,default
+bind=NONE,Escape,setkeymode,default
         '';
         autostart_sh = ''
 uwsm app -- swaybg -i ~/.nixos-dots/wallpaper/nix-wallpaper-simple-blue.png &
