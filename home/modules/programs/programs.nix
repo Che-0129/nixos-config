@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./modules/eww.nix
         ./modules/firefox.nix
         ./modules/fish.nix
         ./modules/foot.nix
