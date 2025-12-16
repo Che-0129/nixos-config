@@ -8,8 +8,9 @@
                 exec uwsm start mango-uwsm.desktop
             end
         '';
-        shellAbbrs = {
+        shellAliases = {
             dl = "cd ~/Downloads";
+            sp = "systemctl suspend";
             rb = "systemctl reboot";
             sd = "systemctl poweroff";
             rm = "trash-put";
@@ -21,5 +22,14 @@
             c = "clear";
             cls = "clear && ls";
         };
+        shellInit = ''
+            function sudo
+                if test "$argv[1]" = "rm"
+                    command sudo trash-put $argv[2..-1]
+                else
+                    command sudo $argv
+                end
+            end
+        '';
     };
 }
