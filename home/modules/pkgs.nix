@@ -24,7 +24,6 @@
         telegram-desktop
         trash-cli
         unzip
-        vial
         vlc
         wl-clipboard
         xarchiver
