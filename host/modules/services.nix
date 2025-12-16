@@ -46,6 +46,9 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="314b", ATTRS{idProduct}=="0106", TAG+="uacc
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="28e9", ATTRS{idProduct}=="0189", TAG+="uaccess"
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="342d", ATTRS{idProduct}=="dfa0", TAG+="uaccess"
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e3c", ATTRS{idProduct}=="df11", TAG+="uaccess"
+
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", MODE="0666"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="feed", MODE="0666"
         '';
     };
 }
