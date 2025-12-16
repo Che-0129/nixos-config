@@ -6,48 +6,50 @@
     wayland.windowManager.mango = {
         enable = true;
         settings = ''
+# Run autostart.sh
 exec-once=~/.config/mango/autostart.sh
 
-#Window effect
+# Window Effect
 border_radius=8
 unfocused_opacity=0.9
 
-#Animation
+# Animation
 animation_type_open=zoom
 animation_type_close=zoom
 zoom_end_ratio=0.3
 fadeout_begin_opacity=0.5
 animation_duration_close=300
 
-#Scroller Layout
+# Scroller Layout
 scroller_structs=10
 scroller_default_proportion=0.5
 
-#Master-Stack Layout
+# Master-Stack Layout
 new_is_master=0
 default_mfact=0.5
 
-#Overview
+# Overview
 enable_hotarea=0
 
-#Miscellaneous
+# Miscellaneous
 sloppyfocus=0
 warpcursor=0
 cursor_theme=Adwaita
 drag_tile_to_tile=1
+circle_layout=tile,scroller
 
-#Keyboard
+# Keyboard
 repeat_delay=300
 xkb_rules_layout=jp
 
-#Trackpad Settings & Mouse
+# Trackpad & Mouse
 tap_to_click=0
 trackpad_natural_scrolling=1
 middle_button_emulation=1
 accel_speed=-0.85
 click_method=2
 
-#Appearance
+# Appearance
 gappih=2
 gappiv=2
 gappoh=4
@@ -55,17 +57,14 @@ gappov=4
 borderpx=2
 focuscolor=0x5294e2ff
 
-#Layout
-tagrule=id:1,layout_name:tile
-
-#Key Bindings
-bind=SUPER,Q,killclient
+# Key Binds
+bind=SUPER+SHIFT,Q,killclient
 bind=SUPER+CTRL,R,reload_config
 
 bind=SUPER,C,spawn,uwsm app -- foot
-bind=SUPER,D,spawn,uwsm app -- firefox
-bind=SUPER+CTRL,D,spawn,uwsm app -- firefox --private-window
-bindr=SUPER,space,spawn,uwsm app -- fuzzel
+bind=SUPER,B,spawn,uwsm app -- firefox
+bind=SUPER+CTRL,B,spawn,uwsm app -- firefox --private-window
+bind=SUPER,F,spawn,uwsm app -- fuzzel
 bind=SUPER+CTRL,P,setkeymode,power_menu
 bind=SUPER,V,spawn_shell,uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy
 bind=SUPER,E,spawn,uwsm app -- pcmanfm
@@ -84,19 +83,14 @@ bind=SUPER+CTRL,H,exchange_client,left
 bind=SUPER+CTRL,J,exchange_client,down
 bind=SUPER+CTRL,K,exchange_client,up
 bind=SUPER+CTRL,L,exchange_client,right
-bind=SUPER+SHIFT,H,resizewin,-25,+0
-bind=SUPER+SHIFT,J,resizewin,+0,+25
-bind=SUPER+SHIFT,K,resizewin,+0,-25
-bind=SUPER+SHIFT,L,resizewin,+25,+0
 
 mousebind=SUPER,btn_left,moveresize,curmove
 mousebind=SUPER,btn_right,moveresize,curresize
 
-bind=SUPER,F,togglemaximizescreen,
-bind=SUPER+CTRL,F,togglefullscreen,
+bind=SUPER,M,togglemaximizescreen,
+bind=SUPER+CTRL,M,togglefullscreen,
 
-bind=SUPER,T,setlayout,tile
-bind=SUPER,S,setlayout,scroller
+bind=SUPER,S,switch_layout
 
 keymode=power_menu
 bind=NONE,S,spawn,systemctl suspend
