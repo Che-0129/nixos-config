@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
     imports = [ inputs.mango.hmModules.mango ];
@@ -102,7 +102,7 @@ bind=NONE,Q,setkeymode,default
 bind=NONE,Escape,setkeymode,default
         '';
         autostart_sh = ''
-uwsm app -- swaybg -i ~/.nixos-dots/wallpaper/nix-wallpaper-simple-blue.png &
+uwsm app -- swaybg -i ${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png &
 uwsm app -- waybar &
 uwsm app -- fcitx5 &
 uwsm app -- wl-paste -t text -w cliphist store &

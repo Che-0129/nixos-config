@@ -12,6 +12,7 @@
         git
         gnumake
         lxsession
+        nixos-artwork.wallpapers.simple-blue
         nodejs
         payload-dumper-go
         pcmanfm
