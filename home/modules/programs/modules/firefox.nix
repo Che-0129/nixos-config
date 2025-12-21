@@ -13,6 +13,7 @@
             "browser.tabs.closeWindowWithLastTab" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
             "browser.translations.enable" = false;
+            "browser.urlbar.trimURLs" = false;
             "browser.uiCustomization.state" = {
                 placements = {
                     widget-overflow-fixed-list = [];
