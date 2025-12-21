@@ -58,14 +58,12 @@ borderpx=2
 focuscolor=0x5294e2ff
 
 # Key Binds
-bind=SUPER,Q,killclient
-bind=SUPER+CTRL,R,reload_config
+bind=SUPER,X,killclient
 
 bind=SUPER,C,spawn,uwsm app -- foot
-bind=SUPER,B,spawn,uwsm app -- firefox
-bind=SUPER+CTRL,B,spawn,uwsm app -- firefox --private-window
-bind=SUPER,F,spawn,uwsm app -- fuzzel
-bind=SUPER+CTRL,P,setkeymode,power_menu
+bind=SUPER,D,spawn,uwsm app -- firefox
+bind=SUPER+CTRL,D,spawn,uwsm app -- firefox --private-window
+bind=SUPER,R,spawn,uwsm app -- fuzzel
 bind=SUPER,V,spawn_shell,uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy
 bind=SUPER,E,spawn,uwsm app -- pcmanfm
 
@@ -87,19 +85,15 @@ bind=SUPER+CTRL,L,exchange_client,right
 mousebind=SUPER,btn_left,moveresize,curmove
 mousebind=SUPER,btn_right,moveresize,curresize
 
-bind=SUPER,M,togglemaximizescreen,
-bind=SUPER+CTRL,M,togglefullscreen,
+bind=SUPER,F,togglemaximizescreen,
+bind=SUPER+CTRL,F,togglefullscreen,
 
 bind=SUPER,S,switch_layout
 
-keymode=power_menu
-bind=NONE,S,spawn,systemctl suspend
-bind=NONE,S,setkeymode,default
-bind=NONE,R,spawn,systemctl reboot
-bind=NONE,W,spawn,systemctl reboot --boot-loader-entry auto-windows
-bind=NONE,P,spawn,systemctl poweroff
-bind=NONE,Q,setkeymode,default
-bind=NONE,Escape,setkeymode,default
+bind=SUPER+SHIFT,S,spawn,systemctl suspend
+bind=SUPER+SHIFT,R,spawn,systemctl reboot
+bind=SUPER+SHIFT,W,spawn,systemctl reboot --boot-loader-entry auto-windows
+bind=SUPER+SHIFT,P,spawn,systemctl poweroff
         '';
         autostart_sh = ''
 uwsm app -- swaybg -i ${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png &
