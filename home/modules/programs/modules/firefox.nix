@@ -12,7 +12,7 @@
         profiles.che.settings = {
             "browser.tabs.closeWindowWithLastTab" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
-            "browser.quitShortcut.disabled" = true;
+            "browser.translations.enable" = false;
             "browser.uiCustomization.state" = {
                 placements = {
                     widget-overflow-fixed-list = [];
@@ -54,6 +54,8 @@
                 currentVersion = 23;
                 newElementCount = 13;
             };
+            "browser.quitShortcut.disabled" = true;
+            "devtools.toolbox.host" = "right";
             "font.name.sans-serif.ja" = "Noto Sans CJK JP";
             "intl.locale.requested" = "ja";
             "sidebar.main.tools" = null;
