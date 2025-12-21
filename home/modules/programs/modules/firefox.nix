@@ -13,6 +13,8 @@
             "browser.tabs.closeWindowWithLastTab" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
             "browser.translations.enable" = false;
+            "browser.urlbar.suggest" = false;
+            "browser.urlbar.suggest.topsites" = false;
             "browser.urlbar.trimURLs" = false;
             "browser.uiCustomization.state" = {
                 placements = {
