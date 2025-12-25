@@ -68,12 +68,6 @@
                 "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.key.menuAccessKeyFocuses" = false;
             };
-            userChrome = ''
-#star-button-box { display: none !important }
-            '';
-            userContent = ''
-menu.personalizeButtonWrapper { display: none !important }
-            '';
         };
     };
 }
