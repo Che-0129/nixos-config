@@ -113,6 +113,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
                     cssls.enable = true;
                     html.enable = true;
                     lua_ls.enable = true;
+                    nil_ls.enable = true;
                     pyright.enable = true;
                 };
             };

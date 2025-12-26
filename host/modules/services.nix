@@ -4,7 +4,6 @@
     services = {
         gvfs.enable = true;
         libinput.enable = true;
-        playerctld.enable = true;
         udisks2.enable = true;
         userborn.enable = true;
         pipewire = {

@@ -6,5 +6,8 @@
         ./modules/swayidle.nix
     ];
 
-    services.cliphist.enable = true;
+    services = {
+        cliphist.enable = true;
+        playerctld.enable = true;
+    };
 }

@@ -7,18 +7,14 @@
         brightnessctl
         dos2unix
         eza
-        gcc
         gimp
         git
-        gnumake
         lxsession
         nixos-artwork.wallpapers.simple-blue
-        nodejs
         payload-dumper-go
         pcmanfm
         qmk
         qmk-udev-rules
-        rustup
         swaybg
         sway-audio-idle-inhibit
         telegram-desktop
