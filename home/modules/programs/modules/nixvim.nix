@@ -32,35 +32,35 @@
             guicursor = "i:ver100-blinkon500-blinkoff500";
         };
         extraConfigLua = ''
-require("blink.pairs").setup({})
-require("modes").setup({})
-require("whitespace-nvim").setup({})
+            require("blink.pairs").setup({})
+            require("modes").setup({})
+            require("whitespace-nvim").setup({})
 
-vim.api.nvim_create_autocmd("VimLeave", {
-    pattern = "*",
-    command = "set guicursor=a:ver25-blinkon500-blinkoff500",
-})
-vim.api.nvim_create_augroup("RetabBeforeWrite", {
-    clear = true
-})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "RetabBeforeWrite",
-    pattern = "*",
-    command = "retab"
-})
-vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        local yank_type = vim.v.event.operator
-        if yank_type == "y" then
-            vim.fn.setreg("+", vim.fn.getreg("\""))
-        end
-end,
-})
-vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
-    callback = function()
-        vim.fn.jobstart({ "fcitx5-remote", "-c" }, { detach = true })
-    end
-})
+            vim.api.nvim_create_autocmd("VimLeave", {
+                pattern = "*",
+                command = "set guicursor=a:ver25-blinkon500-blinkoff500",
+            })
+            vim.api.nvim_create_augroup("RetabBeforeWrite", {
+                clear = true
+            })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = "RetabBeforeWrite",
+                pattern = "*",
+                command = "retab"
+            })
+            vim.api.nvim_create_autocmd("TextYankPost", {
+                callback = function()
+                    local yank_type = vim.v.event.operator
+                    if yank_type == "y" then
+                        vim.fn.setreg("+", vim.fn.getreg("\""))
+                    end
+            end,
+            })
+            vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
+                callback = function()
+                    vim.fn.jobstart({ "fcitx5-remote", "-c" }, { detach = true })
+                end
+            })
         '';
         colorscheme = "onenord";
         plugins = {

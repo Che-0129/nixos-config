@@ -51,22 +51,22 @@
             };
         };
         style = ''
-window#waybar {
-    border-radius: 8px;
-    border: 2px solid #5294e2
-}
+            window#waybar {
+                border-radius: 8px;
+                border: 2px solid #5294e2
+            }
 
-#backlight {
-    margin-left: 16px
-}
+            #backlight {
+                margin-left: 16px
+            }
 
-#clock {
-    font-size: 16px
-}
+            #clock {
+                font-size: 16px
+            }
 
-#tray {
-    margin-right: 16px
-}
+            #tray {
+                margin-right: 16px
+            }
         '';
     };
 }
