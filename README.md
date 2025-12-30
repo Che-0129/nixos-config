@@ -73,6 +73,6 @@ nixos-install
 
 ## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
 ```bash
-git clone https://github.com/Che-0129/nixos-dots.git ~/.nixos-dots
-sudo nixos-rebuild switch --flake ~/.nixos-dots#NixOS
+git clone https://github.com/Che-0129/nixos-config.git ~/.nixos-config
+sudo nixos-rebuild switch --flake ~/.nixos-config#NixOS
 ```
