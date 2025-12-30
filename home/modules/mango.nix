@@ -67,8 +67,8 @@
             bind=SUPER,V,spawn_shell,uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy
             bind=SUPER,E,spawn,uwsm app -- pcmanfm
 
-            bind=NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-            bind=NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+            bind=NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+            bind=NONE,XF86AudioLowerVolume,spawn,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-
             bind=NONE,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_SINK@ toggle
             bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl set 5%+
             bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl set 5%-
