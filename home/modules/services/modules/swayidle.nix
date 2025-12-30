@@ -1,19 +1,19 @@
-{ pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
     services.swayidle = {
         enable = true;
         extraArgs = [ "-w" ];
         events = {
-            before-sleep = "${pkgs.systemd}/bin/loginctl lock-session";
-            after-resume = "/etc/profiles/per-user/che/bin/mmsg -d enable_monitor";
-            lock = "${pkgs.procps}/bin/pidof swaylock || ${pkgs.playerctl}/bin/playerctl pause ; ${pkgs.swaylock-effects}/bin/swaylock";
+            before-sleep = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+            after-resume = "${lib.getExe' inputs.mango.packages.${pkgs.stdenv.hostPlatform.system}.default "mmsg"} -d enable_monitor";
+            lock = "${lib.getExe' pkgs.procps "pidof"} swaylock || ${lib.getExe pkgs.playerctl} pause ; ${lib.getExe pkgs.swaylock-effects}";
         };
         timeouts = [
-            { timeout = 530; command = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10"; resumeCommand = "${pkgs.brightnessctl}/bin/brightnessctl -r"; }
-            { timeout = 600; command = "${pkgs.systemd}/bin/loginctl lock-session"; }
-            { timeout = 630; command = "/etc/profiles/per-user/che/bin/mmsg -d disable_monitor"; resumeCommand = "/etc/profiles/per-user/$USER/bin/mmsg -d enable_monitor"; }
-            { timeout = 720; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+            { timeout = 530; command = "${lib.getExe pkgs.brightnessctl} -s set 10"; resumeCommand = "${lib.getExe pkgs.brightnessctl} -r"; }
+            { timeout = 600; command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session"; }
+            { timeout = 630; command = "${lib.getExe' inputs.mango.packages.${pkgs.stdenv.hostPlatform.system}.default "mmsg"} -d disable_monitor"; resumeCommand = "${lib.getExe' inputs.mango.packages.${pkgs.stdenv.hostPlatform.system}.default "mmsg"} -d enable_monitor"; }
+            { timeout = 720; command = "${lib.getExe' pkgs.systemd "systemctl"} suspend"; }
         ];
     };
 }
