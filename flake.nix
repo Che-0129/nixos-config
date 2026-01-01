@@ -37,6 +37,15 @@
                         users.che = ./home/home-manager.nix;
                     };
                 }
+                ({ pkgs, ... }: {
+                    nixpkgs.overlays = [
+                        (final: prev: {
+                            dfu-programmer = prev.dfu-programmer.overrideAttrs (old: {
+                                CFLAGS = (old.CFLAGS or "") + " -std=gnu17";
+                            });
+                        })
+                    ];
+                })
             ];
         };
     };
