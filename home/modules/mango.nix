@@ -58,7 +58,7 @@
             focuscolor=0x5294e2ff
 
             # Key Binds
-            bind=SUPER,X,killclient
+            bindr=SUPER,Q,killclient
 
             bind=SUPER,C,spawn,uwsm app -- foot
             bind=SUPER,D,spawn,uwsm app -- firefox
@@ -98,8 +98,6 @@
         autostart_sh = ''
             uwsm app -- swaybg -i ${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png &
             uwsm app -- waybar &
-            uwsm app -- fcitx5 &
-            uwsm app -- wl-paste -t text -w cliphist store &
             uwsm app -- lxsession &
             uwsm app -- sway-audio-idle-inhibit &
         '';
