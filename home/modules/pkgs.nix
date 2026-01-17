@@ -2,6 +2,7 @@
 
 {
     home.packages = with pkgs; [
+        android-tools
         aria2
         bat
         brightnessctl
@@ -9,14 +10,11 @@
         eza
         gimp
         git
-        lxsession
+        hyprtoolkit
         nixos-artwork.wallpapers.simple-blue
         payload-dumper-go
         pcmanfm
         qmk
-        qmk-udev-rules
-        swaybg
-        sway-audio-idle-inhibit
         telegram-desktop
         trash-cli
         unzip

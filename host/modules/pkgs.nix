@@ -1,9 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-    environment.systemPackages = with pkgs; [
-        (lib.hiPrio uutils-coreutils-noprefix)
-    ];
+    environment.systemPackages = [ (lib.hiPrio pkgs.uutils-coreutils-noprefix) ];
 
     fonts.packages = with pkgs; [
         hackgen-nf-font

@@ -1,0 +1,16 @@
+{ pkgs, ... }:
+
+{
+    services.hyprpaper = {
+        enable = true;
+        settings = {
+            splash = false;
+            wallpaper = [
+                {
+                    monitor = "eDP-1";
+                    path = "${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png";
+                }
+            ];
+        };
+    };
+}

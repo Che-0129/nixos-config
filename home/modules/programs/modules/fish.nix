@@ -4,9 +4,7 @@
     programs.fish = {
         enable = true;
         loginShellInit = ''
-            if uwsm check may-start
-                exec uwsm start mango-uwsm.desktop
-            end
+            start-hyprland
         '';
         shellAliases = {
             dl = "cd ~/Downloads";

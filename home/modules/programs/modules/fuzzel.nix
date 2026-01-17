@@ -9,7 +9,6 @@
                 use-bold = true;
                 placeholder = "Search...";
                 terminal = "foot -e";
-                launch-prefix = "uwsm app --";
                 lines = 8;
                 horizontal-pad = 48;
                 vertical-pad = 32;

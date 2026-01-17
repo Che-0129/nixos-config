@@ -1,14 +1,10 @@
 {
-    description = "NixOS + MangoWC";
+    description = "NixOS + Hyprland";
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager = {
             url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        mango = {
-            url = "github:DreamMaoMao/mangowc";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nixvim = {
