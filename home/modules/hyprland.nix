@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
     wayland.windowManager.hyprland = {
         enable = true;
-        plugins = [ pkgs.hyprlandPlugins.hyprscrolling ];
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        plugins = [ inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling ];
+        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         settings = {
             general = {
                 border_size = 2;
@@ -68,7 +70,6 @@
                 no_donation_nag = true;
             };
 
-            exec-once = [ "waybar" ];
             monitor = ", preferred, auto, 1";
 
             bind = [
@@ -80,6 +81,11 @@
                 "SUPER CTRL, J, movewindow, d"
                 "SUPER CTRL, K, movewindow, u"
                 "SUPER CTRL, L, movewindow, r"
+                "SUPER, S, exec, hyprctl keyword general:layout scrolling"
+                "SUPER, S, submap, scrolling"
+            ];
+
+            bindu = [
                 "SUPER, F, fullscreen, 1"
                 "SUPER CTRL, F, fullscreen, 0"
                 "SUPER, C, exec, foot"
@@ -90,19 +96,18 @@
                 "SUPER, E, exec, pcmanfm"
                 "SUPER SHIFT, S, exec, systemctl suspend"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-                "SUPER, S, execr, hyprctl getoption general:layout | awk '{print $2}' | grep -q scrolling && hyprctl keyword general:layout dwindle || hyprctl keyword general:layout scrolling"
             ];
 
-            bindle = [
+            bindleu = [
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
                 ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
                 ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
             ];
 
-            bindr = [ "SUPER, Q, killactive" ];
+            bindru = [ "SUPER, Q, killactive" ];
 
-            bindm = [
+            bindmu = [
                 "SUPER, mouse:272, movewindow"
                 "SUPER, mouse:273, resizewindow"
             ];
@@ -125,9 +130,17 @@
 
             plugin.hyprscrolling = {
                 fullscreen_on_one_column = true;
-                column_width = 0.75;
+                column_width = 0.8;
                 focus_fit_method = 1;
             };
         };
+        submaps.scrolling.settings.bind = [
+            "SUPER, H, layoutmsg, focus l"
+            "SUPER, L, layoutmsg, focus r"
+            "SUPER CTRL, H, layoutmsg, swapcol l"
+            "SUPER CTRL, L, layoutmsg, swapcol r"
+            "SUPER, S, exec, hyprctl keyword general:layout dwindle"
+            "SUPER, S, submap, reset"
+        ];
     };
 }

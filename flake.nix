@@ -3,14 +3,13 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        home-manager = {
-            url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
+        home-manager.url = "github:nix-community/home-manager";
+        hyprland.url = "github:hyprwm/Hyprland";
+        hyprland-plugins = {
+            url = "github:hyprwm/hyprland-plugins";
+            inputs.hyprland.follows = "hyprland";
         };
-        nixvim = {
-            url = "github:nix-community/nixvim";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        nixvim.url = "github:nix-community/nixvim";
         modes-nvim = {
             url = "github:mvllow/modes.nvim";
             flake = false;
@@ -33,15 +32,6 @@
                         users.che = ./home/home-manager.nix;
                     };
                 }
-                ({ pkgs, ... }: {
-                    nixpkgs.overlays = [
-                        (final: prev: {
-                            dfu-programmer = prev.dfu-programmer.overrideAttrs (old: {
-                                CFLAGS = (old.CFLAGS or "") + " -std=gnu17";
-                            });
-                        })
-                    ];
-                })
             ];
         };
     };

@@ -14,6 +14,7 @@
         username = "che";
         homeDirectory = "/home/che";
         stateVersion = "25.11";
+        sessionVariables.NIXOS_OZONE_WL = "1";
         file = {
             ".config/hypr/hyprtoolkit.conf".source = ./configs/hypr/hyprtoolkit.conf;
             ".config/libfm".source = ./configs/libfm;
