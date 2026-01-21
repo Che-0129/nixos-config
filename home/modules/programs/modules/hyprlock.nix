@@ -32,7 +32,7 @@
                     shadow_passes = 4;
                     shadow_color = "rgb(5294e2)";
                     font_size = 128;
-                    font_family = "HackGen35 Console NF";
+                    font_family = "Moralerspace Neon HW";
                     position = "0, 240";
                 }
                 {
@@ -40,7 +40,7 @@
                     shadow_passes = 4;
                     shadow_color = "rgb(5294e2)";
                     font_size = 128;
-                    font_family = "HackGen35 Console NF";
+                    font_family = "Moralerspace Neon HW";
                     position = "0, 80";
                 }
                 {
@@ -48,7 +48,7 @@
                     shadow_passes = 4;
                     shadow_color = "rgb(5294e2)";
                     shadow_boost = 4;
-                    font_family = "HackGen35 Console NF";
+                    font_family = "Moralerspace Neon HW";
                     position = "0, -160";
                 }
                 {
@@ -56,7 +56,7 @@
                     shadow_passes = 4;
                     shadow_color = "rgb(5294e2)";
                     shadow_boost = 4;
-                    font_family = "HackGen35 Console NF";
+                    font_family = "Moralerspace Neon HW";
                     position = "0, -180";
                 }
             ];

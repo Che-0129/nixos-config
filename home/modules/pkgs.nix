@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
     home.packages = with pkgs; [
+        (lib.hiPrio uutils-coreutils-noprefix)
         android-tools
         aria2
         bat

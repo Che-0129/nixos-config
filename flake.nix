@@ -4,11 +4,6 @@
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager";
-        hyprland.url = "github:hyprwm/Hyprland";
-        hyprland-plugins = {
-            url = "github:hyprwm/hyprland-plugins";
-            inputs.hyprland.follows = "hyprland";
-        };
         nixvim.url = "github:nix-community/nixvim";
         modes-nvim = {
             url = "github:mvllow/modes.nvim";

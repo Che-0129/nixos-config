@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./modules/gtk.nix
+        ./modules/gtk-qt.nix
         ./modules/hyprland.nix
         ./modules/inputMethod.nix
         ./modules/pkgs.nix

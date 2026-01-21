@@ -6,7 +6,7 @@
         settings = {
             main = {
                 include = "${pkgs.foot.themes}/share/foot/themes/nord";
-                font = "HackGen Console NF:size=11:style=Bold";
+                font = "Moralerspace Neon HW:size=11:style=Bold";
             };
             cursor = {
                 style = "beam";

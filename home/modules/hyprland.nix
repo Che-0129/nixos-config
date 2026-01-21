@@ -1,11 +1,9 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     wayland.windowManager.hyprland = {
         enable = true;
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        plugins = [ inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling ];
-        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        plugins = [ pkgs.hyprlandPlugins.hyprscrolling ];
         settings = {
             general = {
                 border_size = 2;
@@ -122,11 +120,7 @@
             ];
 
             dwindle.force_split = 2;
-
-            env = [
-                "QT_QPA_PLATFORMTHEME, gtk3"
-                "XCURSOR_THEME, Adwaita"
-            ];
+            env = [ "XCURSOR_THEME, Adwaita" ];
 
             plugin.hyprscrolling = {
                 fullscreen_on_one_column = true;

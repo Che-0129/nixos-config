@@ -13,4 +13,8 @@
             package = pkgs.arc-icon-theme;
         };
     };
+    qt = {
+        enable = true;
+        platformTheme = "gtk3";
+    };
 }
