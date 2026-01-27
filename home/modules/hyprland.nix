@@ -110,6 +110,8 @@
                 "SUPER, mouse:273, resizewindow"
             ];
 
+            exec-once = [ "waybar" ];
+
             windowrule = [
                 {
                     name = "fullscreen_border";

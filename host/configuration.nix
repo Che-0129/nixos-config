@@ -33,11 +33,18 @@
         pam.services.hyprlock = {};
     };
 
-    nix.settings = {
-        auto-optimise-store = true;
-        experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "--delete-older-than 3d";
+        };
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = [ "nix-command" "flakes" ];
+        };
     };
 
     nixpkgs.config.allowUnfree = true;
-    system.stateVersion = "25.11";
+    system.stateVersion = "26.05";
 }
