@@ -33,7 +33,8 @@
                     "tooltip" = false;
                 };
                 "clock" = {
-                    "format" = "{:%m-%d / %R (%a)}";
+                    "interval" = 1;
+                    "format" = "{:%F / %T (%a)}";
                     "tooltip" = false;
                 };
                 "tray" = {
@@ -59,5 +60,6 @@
                 margin-right: 16px
             }
         '';
+        systemd.enable = true;
     };
 }

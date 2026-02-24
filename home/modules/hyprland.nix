@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
     wayland.windowManager.hyprland = {
         enable = true;
-        plugins = [ pkgs.hyprlandPlugins.hyprscrolling ];
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         settings = {
             general = {
                 border_size = 2;
@@ -21,19 +22,7 @@
                 shadow.enabled = false;
             };
 
-            animations = {
-                bezier = [
-                    "bezier, 0.25, 1, 0.3, 1"
-                    "linear, 1, 1, 1, 1"
-                ];
-                animation = [
-                    "windows, 1, 10, bezier"
-                    "windowsOut, 1, 10, bezier, popin, 30%"
-                    "border, 1, 10, bezier"
-                    "borderangle, 1, 15, linear, loop"
-                    "fade, 1, 10, bezier"
-                ];
-            };
+            animations.enabled = false;
 
             input = {
                 kb_layout = "jp";
@@ -80,7 +69,7 @@
                 "SUPER CTRL, K, movewindow, u"
                 "SUPER CTRL, L, movewindow, r"
                 "SUPER, S, exec, hyprctl keyword general:layout scrolling"
-                "SUPER, S, submap, scrolling"
+                "SUPER, S, submap, scroll"
             ];
 
             bindu = [
@@ -110,27 +99,23 @@
                 "SUPER, mouse:273, resizewindow"
             ];
 
-            exec-once = [ "waybar" ];
-
             windowrule = [
                 {
-                    name = "fullscreen_border";
+                    name = "fullscreen";
                     "match:fullscreen" = true;
                     border_size = 4;
-                    border_color = "rgb(5294e2) rgb(404552) 45deg";
+                    border_color = "rgb(5294e2)";
                 }
             ];
 
             dwindle.force_split = 2;
             env = [ "XCURSOR_THEME, Adwaita" ];
-
-            plugin.hyprscrolling = {
-                fullscreen_on_one_column = true;
+            scrolling = {
                 column_width = 0.8;
                 focus_fit_method = 1;
             };
         };
-        submaps.scrolling.settings.bind = [
+        submaps.scroll.settings.bind = [
             "SUPER, H, layoutmsg, focus l"
             "SUPER, L, layoutmsg, focus r"
             "SUPER CTRL, H, layoutmsg, swapcol l"
