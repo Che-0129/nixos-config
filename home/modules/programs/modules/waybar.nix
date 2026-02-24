@@ -37,9 +37,7 @@
                     "format" = "{:%F / %T (%a)}";
                     "tooltip" = false;
                 };
-                "tray" = {
-                    "spacing" = 16;
-                };
+                "tray"."spacing" = 16;
             };
         };
         style = ''
