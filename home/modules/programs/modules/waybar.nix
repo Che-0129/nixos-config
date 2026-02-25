@@ -9,17 +9,20 @@
                 modules-left = [ "backlight" "wireplumber" ];
                 modules-center = [ "clock" ];
                 modules-right = [ "battery" "tray" ];
-                margin-top = 4;
-                margin-right= 4;
-                margin-left = 4;
+                margin = "4 4 0 4";
                 spacing = 24;
                 "backlight" = {
-                    "format" = "󰖨 {percent}%";
+                    "format" = "󰖨  {percent}%";
                     "tooltip" = false;
                 };
                 "wireplumber" = {
-                    "format" = "   {volume}%";
-                    "format-muted" = "  Muted";
+                    "format" = "    {volume}%";
+                    "format-muted" = "   Muted";
+                    "tooltip" = false;
+                };
+                "clock" = {
+                    "interval" = 1;
+                    "format" = "{:%F / %T (%a)}";
                     "tooltip" = false;
                 };
                 "battery" = {
@@ -27,14 +30,9 @@
                         "warning" = 30;
                         "critical" = 15;
                     };
-                    "format" = "{icon} {capacity}%";
-                    "format-plugged" = " {capacity}%";
-                    "format-icons" = [" " " " " " " " " "];
-                    "tooltip" = false;
-                };
-                "clock" = {
-                    "interval" = 1;
-                    "format" = "{:%F / %T (%a)}";
+                    "format" = "{icon}   {capacity}%";
+                    "format-plugged" = " {capacity}% ";
+                    "format-icons" = ["" "" "" "" ""];
                     "tooltip" = false;
                 };
                 "tray"."spacing" = 16;
