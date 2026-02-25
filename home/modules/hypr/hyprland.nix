@@ -1,6 +1,13 @@
 { inputs, pkgs, ... }:
 
 {
+    imports = [
+        ./modules/hypridle.nix
+        ./modules/hyprlauncher.nix
+        ./modules/hyprlock.nix
+        ./modules/hyprpaper.nix
+    ];
+
     wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

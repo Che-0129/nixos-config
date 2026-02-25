@@ -3,11 +3,11 @@
 {
     imports = [
         ./modules/gtk-qt.nix
-        ./modules/hyprland.nix
-        ./modules/inputMethod.nix
+        ./modules/hypr/hyprland.nix
+        ./modules/inputMethod/inputMethod.nix
         ./modules/pkgs.nix
         ./modules/programs/programs.nix
-        ./modules/services/services.nix
+        ./modules/services.nix
     ];
 
     home = {
