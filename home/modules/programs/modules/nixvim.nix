@@ -7,7 +7,6 @@
         enable = true;
         extraPlugins = with pkgs.vimPlugins; [
             onenord-nvim
-            blink-pairs
             (pkgs.vimUtils.buildVimPlugin {
                 pname = "modes-nvim";
                 version = "0.3.0";
@@ -32,7 +31,6 @@
             guicursor = "i:ver100-blinkon500-blinkoff500";
         };
         extraConfigLua = ''
-            require("blink.pairs").setup({})
             require("modes").setup({})
             require("whitespace-nvim").setup({})
 
@@ -104,6 +102,7 @@
                 };
             };
             blink-indent.enable = true;
+            blink-pairs.enable = true;
             luasnip.enable = true;
             friendly-snippets.enable = true;
             lsp = {

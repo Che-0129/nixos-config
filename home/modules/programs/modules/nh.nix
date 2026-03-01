@@ -7,6 +7,6 @@
             enable = true;
             extraArgs = "--keep-since 3d --keep 3";
         };
-        flake = "/home/che/.nixos-config";
+        osFlake = "/home/che/.nixos-config";
     };
 }
