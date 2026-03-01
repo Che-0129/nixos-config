@@ -76,7 +76,7 @@
                 "SUPER CTRL, K, movewindow, u"
                 "SUPER CTRL, L, movewindow, r"
                 "SUPER, S, exec, hyprctl keyword general:layout scrolling"
-                "SUPER, S, submap, scroll"
+                "SUPER, S, submap, scrolling"
             ];
 
             bindu = [
@@ -110,19 +110,19 @@
                 {
                     name = "fullscreen";
                     "match:fullscreen" = true;
-                    border_size = 4;
-                    border_color = "rgb(5294e2)";
+                    border_size = 0;
                 }
             ];
 
             dwindle.force_split = 2;
             env = [ "XCURSOR_THEME, Adwaita" ];
+
             scrolling = {
                 column_width = 0.8;
                 focus_fit_method = 1;
             };
         };
-        submaps.scroll.settings.bind = [
+        submaps.scrolling.settings.bind = [
             "SUPER, H, layoutmsg, focus l"
             "SUPER, L, layoutmsg, focus r"
             "SUPER CTRL, H, layoutmsg, swapcol l"

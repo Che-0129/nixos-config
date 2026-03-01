@@ -31,7 +31,7 @@
                         "critical" = 15;
                     };
                     "format" = "{icon}   {capacity}%";
-                    "format-plugged" = " {capacity}% ";
+                    "format-plugged" = "  {capacity}% ";
                     "format-icons" = ["" "" "" "" ""];
                     "tooltip" = false;
                 };
