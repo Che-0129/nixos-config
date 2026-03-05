@@ -86,9 +86,10 @@
                 "SUPER, space, exec, hyprlauncher"
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
                 "SUPER, E, exec, pcmanfm"
-                "SUPER SHIFT, S, exec, systemctl suspend"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
             ];
+
+            bindl = [ "SUPER SHIFT, S, exec, systemctl suspend" ];
 
             bindleu = [
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
