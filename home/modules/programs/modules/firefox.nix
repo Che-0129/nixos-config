@@ -8,7 +8,6 @@
             settings = {
                 "browser.tabs.closeWindowWithLastTab" = false;
                 "browser.toolbars.bookmarks.visibility" = "never";
-                "browser.translations.enable" = false;
                 "browser.urlbar.suggest" = false;
                 "browser.urlbar.suggest.topsites" = false;
                 "browser.urlbar.trimURLs" = false;
@@ -60,7 +59,6 @@
                 "sidebar.main.tools" = null;
                 "sidebar.verticalTabs" = true;
                 "sidebar.visibility" = "never";
-                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.key.menuAccessKeyFocuses" = false;
             };
         };
