@@ -1,12 +1,10 @@
 {
     description = "NixOS + Hyprland";
-
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager";
         nixvim.url = "github:nix-community/nixvim";
     };
-
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {

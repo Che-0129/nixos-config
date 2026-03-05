@@ -28,7 +28,6 @@
                     command sudo $argv
                 end
             end
-
             function nh
                 systemd-inhibit --what=sleep -- nh $argv
             end

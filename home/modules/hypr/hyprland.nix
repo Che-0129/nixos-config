@@ -7,7 +7,6 @@
         ./modules/hyprlock.nix
         ./modules/hyprpaper.nix
     ];
-
     wayland.windowManager.hyprland = {
         enable = true;
         settings = {
@@ -19,16 +18,13 @@
                 "col.active_border" = "rgb(5294e2)";
                 no_focus_fallback = true;
             };
-
             decoration = {
                 rounding = 8;
                 inactive_opacity = 0.9;
                 blur.enabled = false;
                 shadow.enabled = false;
             };
-
             animations.enabled = false;
-
             input = {
                 kb_layout = "jp";
                 repeat_delay = 300;
@@ -41,7 +37,6 @@
                     tap-to-click = false;
                 };
             };
-
             device = [
                 {
                     name = "elan2204:00-04f3:30f5-touchpad";
@@ -52,18 +47,14 @@
                     sensitivity = -0.85;
                 }
             ];
-
             misc.disable_hyprland_logo = true;
             xwayland.force_zero_scaling = true;
             cursor.no_warps = true;
-
             ecosystem = {
                 no_update_news = true;
                 no_donation_nag = true;
             };
-
             monitor = ", preferred, auto, 1";
-
             bind = [
                 "SUPER, H, movefocus, l"
                 "SUPER, J, movefocus, d"
@@ -76,7 +67,6 @@
                 "SUPER, S, exec, hyprctl keyword general:layout scrolling"
                 "SUPER, S, submap, scrolling"
             ];
-
             bindu = [
                 "SUPER, F, fullscreen, 1"
                 "SUPER CTRL, F, fullscreen, 0"
@@ -88,23 +78,18 @@
                 "SUPER, E, exec, pcmanfm"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
             ];
-
             bindl = [ "SUPER SHIFT, S, exec, systemctl suspend" ];
-
             bindleu = [
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
                 ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
                 ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
             ];
-
             bindru = [ "SUPER, Q, killactive" ];
-
             bindmu = [
                 "SUPER, mouse:272, movewindow"
                 "SUPER, mouse:273, resizewindow"
             ];
-
             windowrule = [
                 {
                     name = "fullscreen";
@@ -112,10 +97,8 @@
                     border_size = 0;
                 }
             ];
-
             dwindle.force_split = 2;
             env = [ "XCURSOR_THEME, Adwaita" ];
-
             scrolling = {
                 column_width = 0.8;
                 focus_fit_method = 1;

@@ -9,13 +9,11 @@
                 ignore_empty_input = true;
                 fail_timeout = 500;
             };
-
             background = {
                 path = "screenshot";
                 blur_passes = 1;
                 blur_size = 4;
             };
-
             input-field = {
                 size = "250, 50";
                 outline_thickness = 3;
@@ -25,7 +23,6 @@
                 font_color = "rgb(ffffff)";
                 position = "0, -70";
             };
-
             label = [
                 {
                     text = ''cmd[update:1000] echo "<b><big> $(date +"%H") </big></b>"'';

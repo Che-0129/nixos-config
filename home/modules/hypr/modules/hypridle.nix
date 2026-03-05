@@ -9,7 +9,6 @@
                 before_sleep_cmd = "loginctl lock-session";
                 after_sleep_cmd = "hyprctl dispatch dpms on";
             };
-
             listener = [
                 {
                     timeout = 530;
@@ -31,5 +30,6 @@
                 }
             ];
         };
+        systemdTarget = "hyprland-session.target";
     };
 }

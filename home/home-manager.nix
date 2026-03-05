@@ -9,7 +9,6 @@
         ./modules/programs/programs.nix
         ./modules/services.nix
     ];
-
     home = {
         stateVersion = "26.05";
         sessionVariables.NIXOS_OZONE_WL = "1";
@@ -21,7 +20,6 @@
             ".config/xarchiver".source = ./configs/xarchiver;
         };
     };
-
     xdg.userDirs = {
         enable = true;
         createDirectories = true;
