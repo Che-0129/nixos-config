@@ -7,7 +7,7 @@
             splash = false;
             wallpaper = [
                 {
-                    monitor = "eDP-1";
+                    monitor = "";
                     path = "${pkgs.nixos-artwork.wallpapers.simple-blue}/share/backgrounds/nixos/nix-wallpaper-simple-blue.png";
                 }
             ];
