@@ -4,6 +4,7 @@
     imports = [ inputs.nixvim.homeModules.nixvim ];
     programs.nixvim = {
         enable = true;
+        defaultEditor = true;
         extraPlugins = [ pkgs.vimPlugins.onenord-nvim ];
         opts = {
             number = true;
