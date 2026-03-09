@@ -41,4 +41,5 @@
             waylandFrontend = true;
         };
     };
+    xdg.configFile."mozc/config1.db".source = ./config1.db;
 }

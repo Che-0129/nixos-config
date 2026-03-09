@@ -98,7 +98,10 @@
                 }
             ];
             dwindle.force_split = 2;
-            env = [ "XCURSOR_THEME, Adwaita" ];
+            env = [
+                "NIXOS_OZONE_WL, 1"
+                "XCURSOR_THEME, Adwaita"
+            ];
             scrolling = {
                 column_width = 0.8;
                 focus_fit_method = 1;

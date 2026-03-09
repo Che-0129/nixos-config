@@ -9,19 +9,17 @@
         ./modules/programs/programs.nix
         ./modules/services.nix
     ];
-    home = {
-        stateVersion = "26.05";
-        sessionVariables.NIXOS_OZONE_WL = "1";
-        file = {
-            ".config/hypr/hyprtoolkit.conf".source = ./configs/hypr/hyprtoolkit.conf;
-            ".config/libfm".source = ./configs/libfm;
-            ".config/mozc/config1.db".source = ./configs/mozc/config1.db;
-            ".config/pcmanfm".source = ./configs/pcmanfm;
-            ".config/xarchiver".source = ./configs/xarchiver;
+    home.stateVersion = "26.05";
+    xdg = {
+        configFile = {
+            "hypr/hyprtoolkit.conf".source = ./configs/hypr/hyprtoolkit.conf;
+            "libfm".source = ./configs/libfm;
+            "pcmanfm".source = ./configs/pcmanfm;
+            "xarchiver".source = ./configs/xarchiver;
         };
-    };
-    xdg.userDirs = {
-        enable = true;
-        createDirectories = true;
+        userDirs = {
+            enable = true;
+            createDirectories = true;
+        };
     };
 }
