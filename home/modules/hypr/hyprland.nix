@@ -98,10 +98,6 @@
                 }
             ];
             dwindle.force_split = 2;
-            env = [
-                "NIXOS_OZONE_WL, 1"
-                "XCURSOR_THEME, Adwaita"
-            ];
             scrolling = {
                 column_width = 0.8;
                 focus_fit_method = 1;
@@ -116,4 +112,5 @@
             "SUPER, S, submap, reset"
         ];
     };
+    xdg.configFile."hypr/hyprtoolkit.conf".source = ./hyprtoolkit.conf;
 }

@@ -11,7 +11,10 @@
     time.timeZone = "Asia/Tokyo";
     i18n.defaultLocale = "ja_JP.UTF-8";
     console.keyMap = "jp106";
-    environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+    environment = {
+        pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+        sessionVariables.NIXOS_WL_OZONE = "1";
+    };
     users = {
         mutableUsers = false;
         users.che = {

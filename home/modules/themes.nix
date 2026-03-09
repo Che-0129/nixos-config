@@ -13,6 +13,13 @@
             package = pkgs.arc-icon-theme;
         };
     };
+    home.pointerCursor = {
+        enable = true;
+        package = pkgs.adwaita-icon-theme;
+        hyprcursor.enable = true;
+        name = "Adwaita";
+        size = 24;
+    };
     qt = {
         enable = true;
         platformTheme.name = "gtk3";
