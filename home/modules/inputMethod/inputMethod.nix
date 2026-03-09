@@ -11,9 +11,9 @@
             ];
             settings = {
                 globalOptions = {
-                    Hotkey = { TriggerKeys = ""; };
-                    "Hotkey/ActivateKeys" = { "0" = "Henkan"; };
-                    "Hotkey/DeactivateKeys" = { "0" = "Muhenkan"; };
+                    Hotkey.TriggerKeys = "";
+                    "Hotkey/ActivateKeys"."0" = "Henkan";
+                    "Hotkey/DeactivateKeys"."0" = "Muhenkan";
                 };
                 addons.classicui.globalSection = {
                     Font = "Noto Sans CJK JP 10";
