@@ -67,6 +67,18 @@
                 "SUPER, S, exec, hyprctl keyword general:layout scrolling"
                 "SUPER, S, submap, scrolling"
             ];
+            bindleu = [
+                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+                ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+                ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+            ];
+            bindlu = [ "SUPER SHIFT, S, exec, systemctl suspend" ];
+            bindru = [ "SUPER, Q, killactive" ];
+            bindmu = [
+                "SUPER, mouse:272, movewindow"
+                "SUPER, mouse:273, resizewindow"
+            ];
             bindu = [
                 "SUPER, F, fullscreen, 1"
                 "SUPER CTRL, F, fullscreen, 0"
@@ -77,18 +89,6 @@
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
                 "SUPER, E, exec, pcmanfm"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-            ];
-            bindl = [ "SUPER SHIFT, S, exec, systemctl suspend" ];
-            bindleu = [
-                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-                ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-                ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-            ];
-            bindru = [ "SUPER, Q, killactive" ];
-            bindmu = [
-                "SUPER, mouse:272, movewindow"
-                "SUPER, mouse:273, resizewindow"
             ];
             windowrule = [
                 {
