@@ -12,7 +12,6 @@
         eza
         gimp
         git
-        hyprtoolkit
         payload-dumper-go
         pcmanfm
         qmk

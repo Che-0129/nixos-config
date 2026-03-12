@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     imports = [
@@ -7,6 +7,7 @@
         ./modules/hyprlock.nix
         ./modules/hyprpaper.nix
     ];
+    home.packages = [ pkgs.hyprtoolkit ];
     wayland.windowManager.hyprland = {
         enable = true;
         settings = {
