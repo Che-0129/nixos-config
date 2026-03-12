@@ -106,10 +106,7 @@
                 }
             ];
             dwindle.force_split = 2;
-            scrolling = {
-                column_width = 0.8;
-                focus_fit_method = 1;
-            };
+            scrolling.column_width = 0.75;
         };
         submaps.scrolling.settings.bind = [
             "SUPER, H, layoutmsg, focus l"
