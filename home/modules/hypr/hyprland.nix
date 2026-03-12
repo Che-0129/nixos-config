@@ -20,11 +20,18 @@
             };
             decoration = {
                 rounding = 8;
-                inactive_opacity = 0.9;
-                blur.enabled = false;
+                inactive_opacity = 0.85;
                 shadow.enabled = false;
             };
-            animations.enabled = false;
+            animations = {
+                bezier = [
+                    "custom, 0.15, 0, 0.25, 1"
+                ];
+                animation = [
+                    "windows, 1, 5, custom, popin 10%"
+                    "layers, 1, 2.5, custom, slide bottom"
+                ];
+            };
             input = {
                 kb_layout = "jp";
                 repeat_delay = 300;
