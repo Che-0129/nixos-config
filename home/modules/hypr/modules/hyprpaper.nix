@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+    home.packages = [ pkgs.nixos-artwork.wallpapers.simple-blue ];
     services.hyprpaper = {
         enable = true;
         settings = {

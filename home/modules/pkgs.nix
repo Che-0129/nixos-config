@@ -13,7 +13,6 @@
         gimp
         git
         hyprtoolkit
-        nixos-artwork.wallpapers.simple-blue
         payload-dumper-go
         pcmanfm
         qmk
