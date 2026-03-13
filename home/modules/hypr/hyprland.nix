@@ -105,6 +105,18 @@
                     border_size = 0;
                 }
             ];
+            layerrule = [
+                {
+                    name = "hyprpaper";
+                    "match:namespace" = "hyprpaper";
+                    animation = "fade";
+                }
+                {
+                    name = "waybar";
+                    "match:namespace" = "waybar";
+                    animation = "slide, top";
+                }
+            ];
             dwindle.force_split = 2;
             scrolling.column_width = 0.75;
         };
