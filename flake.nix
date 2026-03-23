@@ -14,7 +14,6 @@
                         users.che = ./home-manager/home-manager.nix;
                         useGlobalPkgs = true;
                         useUserPackages = true;
-                        backupFileExtension = "hm-backup";
                         extraSpecialArgs = { inherit nixvim; };
                     };
                 }
