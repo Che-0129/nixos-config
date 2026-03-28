@@ -1,7 +1,6 @@
 { ... }: {
     imports = [
-        ./modules/libfm.nix
-        ./modules/pcmanfm.nix
+        ./modules/thunar.nix
         ./modules/xarchiver.nix
     ];
 }

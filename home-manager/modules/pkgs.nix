@@ -9,6 +9,7 @@
         eza
         gimp
         git
+        p7zip
         payload-dumper-go
         qmk
         telegram-desktop

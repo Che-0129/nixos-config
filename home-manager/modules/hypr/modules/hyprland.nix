@@ -86,7 +86,7 @@
                 "SUPER CTRL, D, exec, firefox --private-window"
                 "SUPER, space, exec, hyprlauncher"
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
-                "SUPER, E, exec, pcmanfm"
+                "SUPER, E, exec, thunar"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
             ];
             windowrule = [{
