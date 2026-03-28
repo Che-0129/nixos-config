@@ -10,13 +10,11 @@
         gimp
         git
         payload-dumper-go
-        pcmanfm
         qmk
         telegram-desktop
         trash-cli
         unzip
         vlc
         wl-clipboard
-        xarchiver
     ];
 }

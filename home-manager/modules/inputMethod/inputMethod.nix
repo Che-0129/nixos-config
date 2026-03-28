@@ -1,11 +1,10 @@
 { pkgs, ... }: {
     i18n.inputMethod = {
         enable = true;
-        type = "fcitx5";
         fcitx5 = {
             addons = with pkgs; [
-                fcitx5-mozc-ut
                 (callPackage ./fcitx5-arc-theme.nix {})
+                fcitx5-mozc-ut
             ];
             settings = {
                 globalOptions = {
@@ -38,6 +37,7 @@
             };
             waylandFrontend = true;
         };
+        type = "fcitx5";
     };
     xdg.configFile."mozc/config1.db".source = ./config1.db;
 }

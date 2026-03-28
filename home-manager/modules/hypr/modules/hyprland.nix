@@ -12,7 +12,8 @@
             };
             decoration = {
                 rounding = 8;
-                inactive_opacity = 0.85;
+                dim_inactive = true;
+                blur.enabled = false;
                 shadow.enabled = false;
             };
             animations = {
@@ -20,7 +21,7 @@
                     "custom, 0.15, 0, 0.25, 1"
                 ];
                 animation = [
-                    "windows, 1, 5, custom, popin 10%"
+                    "windows, 1, 3, custom, popin 10%"
                     "layers, 1, 2.5, custom, slide bottom"
                 ];
             };
@@ -47,7 +48,6 @@
                 }
             ];
             misc.disable_hyprland_logo = true;
-            xwayland.force_zero_scaling = true;
             cursor.no_warps = true;
             ecosystem = {
                 no_update_news = true;

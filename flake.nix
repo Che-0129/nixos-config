@@ -1,23 +1,24 @@
 {
     inputs = {
-        nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager";
+        nixpkgs.url = "nixpkgs/nixos-unstable";
         nixvim.url = "github:nix-community/nixvim";
     };
-    outputs = { nixpkgs, home-manager, nixvim, ... }: {
+    outputs = { home-manager, nixpkgs, nixvim, ... }: {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
             modules = [
                 ./configuration/configuration.nix
                 home-manager.nixosModules.home-manager {
                     home-manager = {
-                        users.che = ./home-manager/home-manager.nix;
-                        useGlobalPkgs = true;
-                        useUserPackages = true;
+                        backupFileExtension = "hm-backup";
                         extraSpecialArgs = { inherit nixvim; };
+                        useGlobalPkgs = true;
+                        users.che = ./home-manager/home-manager.nix;
+                        useUserPackages = true;
                     };
                 }
             ];
+            system = "x86_64-linux";
         };
     };
 }

@@ -3,7 +3,8 @@
         enable = true;
         clean = {
             enable = true;
-            extraArgs = "--keep-since 3d --keep 3";
+            dates = "daily";
+            extraArgs = "--keep 3 --keep-since 1d";
         };
         osFlake = "/home/che/.nixos-config";
     };

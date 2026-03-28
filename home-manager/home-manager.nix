@@ -1,6 +1,6 @@
 { ... }: {
     imports = [
-        ./modules/dotfiles.nix
+        ./modules/filemanager/filemanager.nix
         ./modules/hypr/hypr.nix
         ./modules/inputMethod/inputMethod.nix
         ./modules/pkgs.nix

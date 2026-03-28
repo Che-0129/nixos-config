@@ -1,5 +1,6 @@
 { pkgs, ... }: {
     boot = {
+        kernel.sysctl."kernel.sysrq" = 1;
         kernelPackages = pkgs.linuxPackages_zen;
         loader = {
             efi.canTouchEfiVariables = true;

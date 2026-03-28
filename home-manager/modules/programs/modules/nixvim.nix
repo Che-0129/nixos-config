@@ -1,29 +1,32 @@
-{ nixvim, pkgs, ... }:
-
-{
+{ nixvim, pkgs, ... }: {
     imports = [ nixvim.homeModules.nixvim ];
     programs.nixvim = {
         enable = true;
-        defaultEditor = true;
         extraPlugins = [ pkgs.vimPlugins.onenord-nvim ];
+        defaultEditor = true;
         opts = {
-            number = true;
-            title = true;
-            tabstop = 4;
-            shiftwidth = 4;
-            expandtab = true;
-            swapfile = false;
+            autoindent = true;
             autoread = true;
-            incsearch = true;
-            smartindent = true;
-            scrolloff = 5;
-            sidescrolloff = 5;
-            mouse = "";
-            hlsearch = false;
-            termguicolors = true;
+            expandtab = true;
             guicursor = "i:ver100-blinkon500-blinkoff500";
+            hlsearch = false;
+            incsearch = true;
+            mouse = "";
+            number = true;
+            scrolloff = 5;
+            shiftwidth = 4;
+            sidescrolloff = 5;
+            swapfile = false;
+            tabstop = 4;
+            termguicolors = true;
+            title = true;
         };
         extraConfigLua = ''
+            require("onenord").setup({
+                disable = {
+                    background = true
+                }
+            })
             vim.api.nvim_create_autocmd("VimLeave", {
                 pattern = "*",
                 command = "set guicursor=a:ver25-blinkon500-blinkoff500",
@@ -50,7 +53,6 @@
                 end
             })
         '';
-        colorscheme = "onenord";
         plugins = {
             blink-cmp = {
                 enable = true;
@@ -93,18 +95,10 @@
             luasnip.enable = true;
             modicator.enable = true;
             neoscroll.enable = true;
-            smear-cursor = {
+            treesitter = {
                 enable = true;
-                settings = {
-                    trailing_stiffness = 0.5;
-                    stiffness_insert_mode = 0.7;
-                    trailing_stiffness_insert_mode = 0.7;
-                    damping = 0.8;
-                    damping_insert_mode = 0.8;
-                    distance_stop_animating = 0.5;
-                };
+                indent.enable = true;
             };
-            which-key.enable = true;
             whitespace.enable = true;
         };
     };
