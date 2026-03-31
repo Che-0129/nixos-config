@@ -59,12 +59,12 @@
                 "SUPER, J, movefocus, d"
                 "SUPER, K, movefocus, u"
                 "SUPER, L, movefocus, r"
-                "SUPER CTRL, H, movewindow, l"
-                "SUPER CTRL, J, movewindow, d"
-                "SUPER CTRL, K, movewindow, u"
-                "SUPER CTRL, L, movewindow, r"
-                "SUPER, S, exec, hyprctl keyword general:layout scrolling"
-                "SUPER, S, submap, scrolling"
+                "SUPER SHIFT, H, movewindow, l"
+                "SUPER SHIFT, J, movewindow, d"
+                "SUPER SHIFT, K, movewindow, u"
+                "SUPER SHIFT, L, movewindow, r"
+                "SUPER, T, exec, hyprctl keyword general:layout scrolling"
+                "SUPER, T, submap, scrolling"
             ];
             bindleu = [
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -72,7 +72,7 @@
                 ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
                 ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
             ];
-            bindlu = [ "SUPER SHIFT, S, exec, systemctl suspend" ];
+            bindlru = [ "SUPER, S, exec, systemctl suspend" ];
             bindru = [ "SUPER, Q, killactive" ];
             bindmu = [
                 "SUPER, mouse:272, movewindow"
@@ -80,10 +80,10 @@
             ];
             bindu = [
                 "SUPER, F, fullscreen, 1"
-                "SUPER CTRL, F, fullscreen, 0"
+                "SUPER SHIFT, F, fullscreen, 0"
                 "SUPER, C, exec, foot"
                 "SUPER, D, exec, firefox"
-                "SUPER CTRL, D, exec, firefox --private-window"
+                "SUPER SHIFT, D, exec, firefox --private-window"
                 "SUPER, space, exec, hyprlauncher"
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
                 "SUPER, E, exec, thunar"
@@ -114,8 +114,8 @@
             "SUPER, L, layoutmsg, focus r"
             "SUPER CTRL, H, layoutmsg, swapcol l"
             "SUPER CTRL, L, layoutmsg, swapcol r"
-            "SUPER, S, exec, hyprctl keyword general:layout dwindle"
-            "SUPER, S, submap, reset"
+            "SUPER, T, exec, hyprctl keyword general:layout dwindle"
+            "SUPER, T, submap, reset"
         ];
     };
 }
