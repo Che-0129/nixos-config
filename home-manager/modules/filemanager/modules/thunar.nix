@@ -20,6 +20,7 @@
                 <value type="string" value="recent:///"/>
               </property>
               <property name="misc-show-delete-action" type="bool" value="false"/>
+              <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_YYYYMMDD"/>
             </channel>
         '';
     };

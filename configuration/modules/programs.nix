@@ -6,6 +6,12 @@
             enable = true;
             extraCompatPackages = [ pkgs.proton-ge-bin ];
         };
-        thunar.enable = true;
+        thunar = {
+            enable = true;
+            plugins = with pkgs; [
+                thunar-archive-plugin
+                thunar-volman
+            ];
+        };
     };
 }
