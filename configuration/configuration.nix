@@ -1,8 +1,7 @@
 { ... }: {
     imports = [
-        ./hardware-configuration.nix
         ./modules/fonts.nix
-        ./modules/hardware.nix
+        ./modules/hardware-configuration.nix
         ./modules/locale.nix
         ./modules/networking.nix
         ./modules/programs.nix
