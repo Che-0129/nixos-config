@@ -33,8 +33,8 @@ sgdisk -n 1::+1G -n 2:: -t 1:ef00 -t 2:8304 /dev/nvme0n1
 
 ## フォーマット
 ```bash
-mkfs.fat -F 32 -n nixos-boot /dev/nvme0n1p1
-mkfs.btrfs -L nixos-root /dev/nvme0n1p2
+mkfs.fat -F 32 /dev/nvme0n1p1
+mkfs.btrfs /dev/nvme0n1p2
 ```
 
 ## マウント

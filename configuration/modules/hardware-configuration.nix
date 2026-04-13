@@ -11,12 +11,12 @@
         };
     };
     fileSystems."/" = {
-        device = "/dev/disk/by-label/nixos-root";
+        device = "/dev/nvme0n1p2";
         fsType = "btrfs";
         options = [ "compress=zstd:1" "noatime" "space_cache=v2" ];
     };
     fileSystems."/boot" = {
-        device = "/dev/disk/by-label/nixos-boot";
+        device = "/dev/nvme0n1p1";
         fsType = "vfat";
         options = [ "fmask=0077" "dmask=0077" ];
     };
