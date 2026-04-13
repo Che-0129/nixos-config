@@ -28,7 +28,7 @@ nmtui
 ## パーティション切り
 ```bash
 sgdisk -Z /dev/nvme0n1
-sgdisk -n 1::+1G -n 2::-64G -t 1:ef00 -t 2:8304 /dev/nvme0n1
+sgdisk -n 1::+1G -n 2:: -t 1:ef00 -t 2:8304 /dev/nvme0n1
 ```
 
 ## フォーマット
@@ -74,5 +74,5 @@ nixos-install
 ## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
 ```bash
 git clone https://github.com/Che-0129/nixos-config.git ~/.nixos-config
-sudo nixos-rebuild switch --flake ~/.nixos-config#NixOS
+sudo nixos-rebuild boot --flake ~/.nixos-config#NixOS
 ```
