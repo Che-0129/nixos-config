@@ -66,12 +66,6 @@
                 "SUPER, T, exec, hyprctl keyword general:layout scrolling"
                 "SUPER, T, submap, scrolling"
             ];
-            bindleu = [
-                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
-                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-                ", XF86MonBrightnessUp, exec, brightnessctl set 1%+"
-                ", XF86MonBrightnessDown, exec, brightnessctl set 1%-"
-            ];
             bindlru = [ "SUPER, S, exec, systemctl suspend" ];
             bindru = [ "SUPER, Q, killactive" ];
             bindmu = [
@@ -86,8 +80,11 @@
                 "SUPER SHIFT, D, exec, firefox --private-window"
                 "SUPER, space, exec, hyprlauncher"
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
-                "SUPER, E, exec, thunar"
+                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
+                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+                ", XF86MonBrightnessUp, exec, brightnessctl set 1%+"
+                ", XF86MonBrightnessDown, exec, brightnessctl set 1%-"
             ];
             windowrule = [{
                 name = "fullscreen";
