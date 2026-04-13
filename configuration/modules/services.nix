@@ -1,6 +1,5 @@
 { pkgs, ... }: {
     services = {
-        gvfs.enable = true;
         pipewire = {
             enable = true;
             pulse.enable = true;
