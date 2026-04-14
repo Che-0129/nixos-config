@@ -3,9 +3,35 @@
         enable = true;
         languagePacks = [ "ja" ];
         profiles.che = {
+            isDefault = true;
+            search = {
+                default = "ddg";
+                engines = {
+                    bing.metaData.hidden = true;
+                    duckduckgo.metaData.hidden = true;
+                    perplexity.metaData.hidden = true;
+                    rakuten.metaData.hidden = true;
+                    wikipedia-ja.metaData.hidden = true;
+                    yahoo-jp.metaData.hidden = true;
+                    yahoo-jp-auctions.metaData.hidden = true;
+                };
+            };
             settings = {
+                "browser.ai.control.sidebarChatbot" = "blocked";
+                "browser.newtabpage.activity-stream.showSponsored" = false;
                 "browser.tabs.closeWindowWithLastTab" = false;
                 "browser.toolbars.bookmarks.visibility" = "never";
+                "browser.uiCustomization.navBarWhenVerticalTabs" = [
+                    "back-button"
+                    "forward-button"
+                    "stop-reload-button"
+                    "customizableui-special-spring4"
+                    "urlbar-container"
+                    "customizableui-special-spring3"
+                    "vertical-spacer"
+                    "downloads-button"
+                    "unified-extensions-button"
+                ];
                 "browser.uiCustomization.state" = {
                     placements = {
                         widget-overflow-fixed-list = [];
@@ -47,7 +73,6 @@
                     currentVersion = 23;
                     newElementCount = 13;
                 };
-                "browser.urlbar.suggest.topsites" = false;
                 "browser.urlbar.suggest" = false;
                 "browser.urlbar.trimURLs" = false;
                 "browser.quitShortcut.disabled" = true;
@@ -57,8 +82,22 @@
                 "sidebar.main.tools" = null;
                 "sidebar.verticalTabs" = true;
                 "sidebar.visibility" = "never";
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "ui.key.menuAccessKeyFocuses" = false;
             };
+            userChrome = ''
+                moz-button[view="viewCustomizeSidebar"] {
+                    visibility: hidden;
+                }
+                #star-button-box,
+                #trust-icon-container,
+                #reader-mode-button {
+                    display: none !important;
+                }
+            '';
+            userContent = ''
+                .personalizeButtonWrapper { display: none; }
+            '';
         };
     };
 }
