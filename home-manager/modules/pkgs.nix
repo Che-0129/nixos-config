@@ -7,7 +7,6 @@
         discord
         dos2unix
         eza
-        gimp
         git
         p7zip
         payload-dumper-go

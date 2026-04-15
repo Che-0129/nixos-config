@@ -1,5 +1,6 @@
 { ... }: {
     imports = [
+        ./modules/gimp.nix
         ./modules/hypr/hypr.nix
         ./modules/inputMethod/inputMethod.nix
         ./modules/pkgs.nix
