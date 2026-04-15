@@ -2,6 +2,7 @@
     programs.firefox = {
         enable = true;
         languagePacks = [ "ja" ];
+        policies.RequestedLocales = [ "ja" ];
         profiles.che = {
             isDefault = true;
             search = {
