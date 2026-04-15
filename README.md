@@ -57,13 +57,12 @@ vim /mnt/etc/nixos/configuration.nix
 console.keyMap = "jp106";
 users.users.che = {
   isNormalUser = true;
-  extraGroups = [ "networkmanager"  "wheel" ];
+  extraGroups = [ "networkmanager" "wheel" ];
   initialPassword = "password";
-}
-environment.systemPackages = with pkgs; [
-  git
-  neovim
-];
+  packages = with pkgs; [
+    git
+  ];
+};
 ```
 
 ## インストール
@@ -71,8 +70,15 @@ environment.systemPackages = with pkgs; [
 nixos-install
 ```
 
+## rootのパスワードを設定したら`poweroff`で電源を切り、USBメモリを取り外して起動
+
 ## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
 ```bash
 git clone https://github.com/Che-0129/nixos-config.git ~/.nixos-config
 sudo nixos-rebuild boot --flake ~/.nixos-config#NixOS
+```
+
+## 再起動しログイン後`iwctl`でネットに接続
+```bash
+iwctl station wlan0 connect <SSID> -P <Password>
 ```
