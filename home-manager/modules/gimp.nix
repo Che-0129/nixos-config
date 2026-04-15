@@ -10,7 +10,6 @@
     };
     xdg.desktopEntries."gimp" = {
         exec = "gimp -c %U";
-        icon = "${pkgs.gimp}/share/icons/hicolor/scalable/apps/gimp.svg";
         name = "GIMP";
     };
 }
