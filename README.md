@@ -28,7 +28,7 @@ nmtui
 ## パーティション切り
 ```bash
 sgdisk -Z /dev/nvme0n1
-sgdisk -n 1::+1G -n 2:: -t 1:ef00 -t 2:8304 /dev/nvme0n1
+sgdisk -n 1::+512M -n 2:: -t 1:ef00 -t 2:8304 /dev/nvme0n1
 ```
 
 ## フォーマット
@@ -40,7 +40,7 @@ mkfs.btrfs /dev/nvme0n1p2
 ## マウント
 ```bash
 mount /dev/nvme0n1p2 /mnt
-mount -m /dev/nvme0n1p1 /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot -m
 ```
 
 ## configuration.nix等を生成
