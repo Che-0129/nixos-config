@@ -7,6 +7,7 @@
             isDefault = true;
             search = {
                 default = "ddg";
+                force = true;
                 engines = {
                     bing.metaData.hidden = true;
                     duckduckgo.metaData.hidden = true;
