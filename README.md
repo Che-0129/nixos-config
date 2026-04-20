@@ -25,60 +25,9 @@ loadkeys jp106
 nmtui
 ```
 
-## パーティション切り
-```bash
-sgdisk -Z /dev/nvme0n1
-sgdisk -n 1::+512M -n 2:: -t 1:ef00 -t 2:8304 /dev/nvme0n1
-```
-
-## フォーマット
-```bash
-mkfs.fat -F 32 /dev/nvme0n1p1
-mkfs.btrfs /dev/nvme0n1p2
-```
-
-## マウント
-```bash
-mount /dev/nvme0n1p2 /mnt
-mount /dev/nvme0n1p1 /mnt/boot -m
-```
-
-## configuration.nix等を生成
-```bash
-nixos-generate-config --root /mnt
-```
-
-## configuration.nixを編集
-```bash
-vim /mnt/etc/nixos/configuration.nix
-```
-```nix
-# 以下のように編集または追記
-console.keyMap = "jp106";
-users.users.che = {
-  isNormalUser = true;
-  extraGroups = [ "networkmanager" "wheel" ];
-  initialPassword = "password";
-  packages = with pkgs; [
-    git
-  ];
-};
-```
-
 ## インストール
 ```bash
-nixos-install
+nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest#disko-install -- --flake github:Che-0129/nixos-config#NixOS
 ```
 
 ## rootのパスワードを設定したら`poweroff`で電源を切り、USBメモリを取り外して起動
-
-## 再起動後ログインしたら`nmtui`でネットに接続し、このリポジトリをクローンしてビルド
-```bash
-git clone https://github.com/Che-0129/nixos-config.git ~/.nixos-config
-sudo nixos-rebuild boot --flake ~/.nixos-config#NixOS
-```
-
-## 再起動しログイン後`iwctl`でネットに接続
-```bash
-iwctl station wlan0 connect <SSID> -P <Password>
-```
