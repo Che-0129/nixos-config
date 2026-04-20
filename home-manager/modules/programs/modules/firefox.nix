@@ -32,7 +32,6 @@
                     "customizableui-special-spring3"
                     "vertical-spacer"
                     "downloads-button"
-                    "unified-extensions-button"
                 ];
                 "browser.uiCustomization.state" = {
                     placements = {
@@ -63,6 +62,7 @@
                         "_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action"
                         "enhancerforyoutube_maximerf_addons_mozilla_org-browser-action"
                         "ublock0_raymondhill_net-browser-action"
+                        "x-dim-mode_juanbuis_com-browser-action"
                     ];
                     dirtyAreaCache = [
                         "nav-bar"
@@ -91,15 +91,15 @@
                 moz-button[view="viewCustomizeSidebar"] {
                     visibility: hidden;
                 }
+                #identity-permission-box,
+                #picture-in-picture-button,
                 #star-button-box,
                 #trust-icon-container,
                 #reader-mode-button {
                     display: none !important;
                 }
             '';
-            userContent = ''
-                .personalizeButtonWrapper { display: none; }
-            '';
+            userContent = ''.personalizeButtonWrapper { display: none; }'';
         };
     };
 }
