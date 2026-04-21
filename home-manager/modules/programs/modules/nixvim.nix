@@ -27,32 +27,40 @@
                     background = true
                 }
             })
-            vim.api.nvim_create_autocmd("VimLeave", {
-                pattern = "*",
-                command = "set guicursor=a:ver25-blinkon500-blinkoff500",
-            })
-            vim.api.nvim_create_augroup("RetabBeforeWrite", {
-                clear = true
-            })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = "RetabBeforeWrite",
-                pattern = "*",
-                command = "retab"
-            })
-            vim.api.nvim_create_autocmd("TextYankPost", {
-                callback = function()
-                    local yank_type = vim.v.event.operator
-                    if yank_type == "y" then
-                        vim.fn.setreg("+", vim.fn.getreg("\""))
-                    end
-            end,
-            })
-            vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
-                callback = function()
-                    vim.fn.jobstart({ "fcitx5-remote", "-c" }, { detach = true })
-                end
-            })
         '';
+        autoCmd = [
+            {
+                event = "VimLeave";
+                pattern = "*";
+                command = "set guicursor=a:ver25-blinkon500-blinkoff500";
+            }
+            {
+                event = "BufWritePre";
+                pattern = "*";
+                group = "RetabBeforeWrite";
+                command = "retab";
+            }
+            {
+                event = "TextYankPost";
+                callback.__raw = ''
+                    function()
+                        local yank_type = vim.v.event.operator
+                        if yank_type == "y" then
+                            vim.fn.setreg("+", vim.fn.getreg("\""))
+                        end
+                    end
+                '';
+            }
+            {
+                event = [ "InsertLeave" "CmdlineLeave" ];
+                callback.__raw = ''
+                    function()
+                        vim.fn.jobstart({ "fcitx5-remote", "-c" }, { detach = true })
+                    end
+                '';
+            }
+        ];
+        autoGroups.RetabBeforeWrite.clear = true;
         plugins = {
             blink-cmp = {
                 enable = true;
@@ -71,7 +79,6 @@
                     sources.default = [
                         "lsp"
                         "path"
-                        "snippets"
                         "buffer"
                     ];
                 };
@@ -79,7 +86,6 @@
             blink-indent.enable = true;
             blink-pairs.enable = true;
             colorizer.enable = true;
-            friendly-snippets.enable = true;
             illuminate.enable = true;
             lsp = {
                 enable = true;
@@ -87,16 +93,24 @@
                     clangd.enable = true;
                     cssls.enable = true;
                     html.enable = true;
+                    jsonls.enable = true;
                     nil_ls.enable = true;
                     pyright.enable = true;
                 };
             };
             lualine.enable = true;
-            luasnip.enable = true;
             modicator.enable = true;
             neoscroll.enable = true;
             treesitter = {
                 enable = true;
+                grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                    c
+                    css
+                    html
+                    json
+                    nix
+                    python
+                ];
                 indent.enable = true;
             };
             whitespace.enable = true;
