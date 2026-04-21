@@ -28,8 +28,8 @@ nmtui
 ## インストール
 ```bash
 git clone https://github.com/Che-0129/nixos-config
-nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount nixos-config/disko.nix
-nixos-install --flake nixos-config#NixOS
+nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./nixos-config/disko.nix
+nixos-install --flake ./nixos-config#NixOS
 ```
 
 ## rootのパスワードを設定したら`poweroff`で電源を切り、USBメモリを取り外して起動
