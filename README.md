@@ -3,7 +3,7 @@
 sudo -i
 loadkeys jp106
 nvme sanitize /dev/nvme0n1 -a 2
-nvme sanitize-log -H /dev/nvme0n1 #(SPROG)の値が65535ならok
+nvme sanitize-log /dev/nvme0n1 -H #(SPROG)の値が65535ならok
 nvme read /dev/nvme0n1 -s 0 -c 0 -z 512 | hexdump #出力が0ならok
 reboot
 ```
