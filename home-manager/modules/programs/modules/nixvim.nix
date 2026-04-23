@@ -37,6 +37,10 @@
                 end
             '';
         }];
+        diagnostic.settings = {
+            virtual_text = true;
+            underline = true;
+        };
         plugins = {
             blink-cmp = {
                 enable = true;
