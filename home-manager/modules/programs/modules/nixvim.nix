@@ -7,6 +7,7 @@
         opts = {
             autoindent = true;
             autoread = true;
+            clipboard = "unnamedplus";
             expandtab = true;
             guicursor = "i:ver100-blinkon500-blinkoff500";
             hlsearch = false;
@@ -28,39 +29,14 @@
                 }
             })
         '';
-        autoCmd = [
-            {
-                event = "VimLeave";
-                pattern = "*";
-                command = "set guicursor=a:ver25-blinkon500-blinkoff500";
-            }
-            {
-                event = "BufWritePre";
-                pattern = "*";
-                group = "RetabBeforeWrite";
-                command = "retab";
-            }
-            {
-                event = "TextYankPost";
-                callback.__raw = ''
-                    function()
-                        local yank_type = vim.v.event.operator
-                        if yank_type == "y" then
-                            vim.fn.setreg("+", vim.fn.getreg("\""))
-                        end
-                    end
-                '';
-            }
-            {
-                event = [ "InsertLeave" "CmdlineLeave" ];
-                callback.__raw = ''
-                    function()
-                        vim.fn.jobstart({ "fcitx5-remote", "-c" }, { detach = true })
-                    end
-                '';
-            }
-        ];
-        autoGroups.RetabBeforeWrite.clear = true;
+        autoCmd = [{
+            event = [ "InsertLeave" "CmdlineLeave" ];
+            callback.__raw = ''
+                function()
+                    vim.system({ "fcitx5-remote", "-c" }, { detach = true })
+                end
+            '';
+        }];
         plugins = {
             blink-cmp = {
                 enable = true;
@@ -72,10 +48,7 @@
                         };
                         menu.border = "rounded";
                     };
-                    keymap = {
-                        preset = "enter";
-                        "<C-y>" = [ "accept" "fallback" ];
-                    };
+                    keymap.preset = "enter";
                     sources.default = [
                         "lsp"
                         "path"
@@ -86,7 +59,6 @@
             blink-indent.enable = true;
             blink-pairs.enable = true;
             colorizer.enable = true;
-            illuminate.enable = true;
             lsp = {
                 enable = true;
                 servers = {
@@ -111,6 +83,7 @@
                     nix
                     python
                 ];
+                highlight.enable = true;
                 indent.enable = true;
             };
             whitespace.enable = true;
