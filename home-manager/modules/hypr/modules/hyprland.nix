@@ -109,8 +109,8 @@
         submaps.scrolling.settings.bind = [
             "SUPER, H, layoutmsg, focus l"
             "SUPER, L, layoutmsg, focus r"
-            "SUPER CTRL, H, layoutmsg, swapcol l"
-            "SUPER CTRL, L, layoutmsg, swapcol r"
+            "SUPER SHIFT, H, layoutmsg, swapcol l"
+            "SUPER SHIFT, L, layoutmsg, swapcol r"
             "SUPER, T, exec, hyprctl keyword general:layout dwindle"
             "SUPER, T, submap, reset"
         ];
