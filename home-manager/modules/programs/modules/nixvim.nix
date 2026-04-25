@@ -87,7 +87,7 @@
                     nix
                     python
                 ];
-                highlight.enable = true;
+		        highlight.enable = false;
                 indent.enable = true;
             };
             whitespace.enable = true;
