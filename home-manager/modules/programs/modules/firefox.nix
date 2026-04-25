@@ -40,7 +40,10 @@
                 "ui.key.menuAccessKeyFocuses" = false;
             };
             userChrome = ''
-                .buttons-wrapper { min-height: 0 !important; }
+                .buttons-wrapper {
+                    height: 0 !important;
+                    min-height: 0 !important;
+                }
                 #back-button,
                 #forward-button,
                 #identity-permission-box,
