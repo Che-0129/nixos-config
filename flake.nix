@@ -3,7 +3,7 @@
         disko.url = "github:nix-community/disko";
         home-manager.url = "github:nix-community/home-manager";
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        nixvim.url = "github:nix-community/nixvim";
+        nixvim.url = "github:nix-community/nixvim?ref=update/main";
     };
     outputs = { disko, home-manager, nixpkgs, nixvim, ... }: {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {

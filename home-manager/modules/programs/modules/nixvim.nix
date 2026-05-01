@@ -21,6 +21,7 @@
             tabstop = 4;
             termguicolors = true;
             title = true;
+            list = true;
         };
         extraConfigLua = ''
             require("onenord").setup({
@@ -41,6 +42,18 @@
             virtual_text = true;
             underline = true;
         };
+        keymaps = [
+            {
+                action = "gj";
+                key = "j";
+                mode = "n";
+            }
+            {
+                action = "gk";
+                key = "k";
+                mode = "n";
+            }
+        ];
         plugins = {
             blink-cmp = {
                 enable = true;
@@ -87,10 +100,9 @@
                     nix
                     python
                 ];
-		        highlight.enable = false;
+                highlight.enable = true;
                 indent.enable = true;
             };
-            whitespace.enable = true;
         };
     };
 }
