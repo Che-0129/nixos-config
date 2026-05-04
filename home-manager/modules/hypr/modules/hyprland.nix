@@ -80,6 +80,7 @@
                 "SUPER SHIFT, D, exec, firefox --private-window"
                 "SUPER, space, exec, hyprlauncher"
                 "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
+                "SUPER, P, exec, hyprshot -m region -o ~/Downloads/"
                 ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
                 ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
@@ -95,6 +96,11 @@
                 {
                     name = "hyprpaper";
                     "match:namespace" = "hyprpaper";
+                    animation = "fade";
+                }
+                {
+                    name = "hyprshot";
+                    "match:namespace" = "selection";
                     animation = "fade";
                 }
                 {
