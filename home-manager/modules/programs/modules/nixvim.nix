@@ -4,6 +4,7 @@
         enable = true;
         extraPlugins = [ pkgs.vimPlugins.onenord-nvim ];
         defaultEditor = true;
+        nixpkgs.config.allowUnfree = true;
         opts = {
             autoindent = true;
             autoread = true;
@@ -21,7 +22,6 @@
             tabstop = 4;
             termguicolors = true;
             title = true;
-            list = true;
         };
         extraConfigLua = ''
             require("onenord").setup({
@@ -103,6 +103,7 @@
                 highlight.enable = true;
                 indent.enable = true;
             };
+            whitespace.enable = true;
         };
     };
 }
