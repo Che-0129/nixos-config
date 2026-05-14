@@ -1,6 +1,7 @@
 { ... }: {
     wayland.windowManager.hyprland = {
         enable = true;
+        configType = "hyprlang";
         settings = {
             general = {
                 border_size = 2;
