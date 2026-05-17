@@ -105,8 +105,8 @@
                     animation = "fade";
                 }
                 {
-                    name = "waybar";
-                    "match:namespace" = "waybar";
+                    name = "syshud";
+                    "match:namespace" = "syshud";
                     animation = "slide, top";
                 }
             ];

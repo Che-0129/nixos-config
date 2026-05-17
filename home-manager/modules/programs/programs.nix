@@ -6,6 +6,5 @@
         ./modules/nh.nix
         ./modules/nixvim.nix
         ./modules/thunderbird.nix
-        ./modules/waybar.nix
     ];
 }
