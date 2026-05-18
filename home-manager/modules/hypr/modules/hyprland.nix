@@ -31,7 +31,10 @@
                         tap_to_click = false;
                     };
                 };
-                misc.disable_hyprland_logo = true;
+                misc = {
+                    disable_hyprland_logo = true;
+                    font_family = "Moralerspace Neon HW";
+                };
                 cursor.no_warps = true;
                 ecosystem = {
                     no_update_news = true;
@@ -89,6 +92,18 @@
                             })
                             hl.dispatch(hl.dsp.submap("reset"))
                         end
+                    end
+                '') { submap_universal = true; } ]; }
+                { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
+                    function()
+                        local time = os.date("%H:%M")
+                        hl.notification.create({
+                            text = "🕓️ "..time,
+                            duration = 3000,
+                            font_size = 24,
+                            color = "rgb(5294e2)",
+                            icon = "NONE",
+                        })
                     end
                 '') { submap_universal = true; } ]; }
             ];
