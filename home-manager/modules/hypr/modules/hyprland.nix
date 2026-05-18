@@ -1,125 +1,169 @@
-{ ... }: {
+{ lib, ... }: {
     wayland.windowManager.hyprland = {
         enable = true;
-        configType = "hyprlang";
         settings = {
-            general = {
-                border_size = 2;
-                gaps_in = 2;
-                gaps_out = 4;
-                "col.inactive_border" = "rgb(404552)";
-                "col.active_border" = "rgb(5294e2)";
-                no_focus_fallback = true;
-            };
-            decoration = {
-                rounding = 8;
-                dim_inactive = true;
-                blur.enabled = false;
-                shadow.enabled = false;
-            };
-            animations = {
-                bezier = [
-                    "custom, 0.15, 0, 0.25, 1"
-                ];
-                animation = [
-                    "windows, 1, 3, custom, popin 10%"
-                    "layers, 1, 2.5, custom, slide bottom"
-                ];
-            };
-            input = {
-                kb_layout = "jp";
-                repeat_delay = 300;
-                accel_profile = "adaptive";
-                follow_mouse = 2;
-                touchpad = {
-                    natural_scroll = true;
-                    scroll_factor = 0.4;
-                    clickfinger_behavior = true;
-                    tap-to-click = false;
+            config = {
+                general = {
+                    border_size = 2;
+                    gaps_in = 2;
+                    gaps_out = 4;
+                    col = {
+                        inactive_border = "rgb(404552)";
+                        active_border = "rgb(5294e2)";
+                    };
+                    no_focus_fallback = true;
                 };
+                decoration = {
+                    rounding = 8;
+                    dim_inactive = true;
+                    blur.enabled = false;
+                    shadow.enabled = false;
+                };
+                input = {
+                    kb_layout = "jp";
+                    repeat_delay = 300;
+                    accel_profile = "adaptive";
+                    follow_mouse = 2;
+                    touchpad = {
+                        natural_scroll = true;
+                        scroll_factor = 0.4;
+                        clickfinger_behavior = true;
+                        tap_to_click = false;
+                    };
+                };
+                misc.disable_hyprland_logo = true;
+                cursor.no_warps = true;
+                ecosystem = {
+                    no_update_news = true;
+                    no_donation_nag = true;
+                };
+                monitor = [{
+                    output = "";
+                    mode = "preferred";
+                    position = "auto";
+                    scale = 1;
+                }];
+                dwindle.force_split = 2;
+                scrolling.column_width = 0.75;
+            };
+            bind = [
+                { _args = [ "SUPER + C" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + SHIFT + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox --private-window')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + space" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprlauncher')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprshot -m region -o ~/Downloads/')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; submap_universal = true; } ]; }
+                { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") { mouse = true; submap_universal = true; } ]; }
+                { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") { submap_universal = true; } ]; }
+                { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") { submap_universal = true; } ]; }
+                { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") { submap_universal = true; } ]; }
+                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%-')") { submap_universal = true; } ]; }
+                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%+')") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'l' })") ]; }
+                { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'd' })") ]; }
+                { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'u' })") ]; }
+                { _args = [ "SUPER + L" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'r' })") ]; }
+                { _args = [ "SUPER + SHIFT + H" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'l' })") ]; }
+                { _args = [ "SUPER + SHIFT + J" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'd' })") ]; }
+                { _args = [ "SUPER + SHIFT + K" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'u' })") ]; }
+                { _args = [ "SUPER + SHIFT + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
+                { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; submap_universal = true; } ]; }
+                { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; submap_universal = true; } ]; }
+                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = 1 })") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + T" (lib.generators.mkLuaInline ''
+                    function()
+                        local current_layout = hl.get_config("general.layout")
+                        if current_layout == "dwindle" then
+                            hl.config({
+                                general = {
+                                    layout = "scrolling"
+                                }
+                            })
+                            hl.dispatch(hl.dsp.submap("scrolling"))
+                        elseif current_layout == "scrolling" then
+                            hl.config({
+                                general = {
+                                    layout = "dwindle"
+                                }
+                            })
+                            hl.dispatch(hl.dsp.submap("reset"))
+                        end
+                    end
+                '') { submap_universal = true; } ]; }
+            ];
+            define_submap = {
+                _args = [
+                    "scrolling"
+                    (lib.generators.mkLuaInline ''
+                        function()
+                            hl.bind("SUPER + H", hl.dsp.layout("focus l"))
+                            hl.bind("SUPER + L", hl.dsp.layout("focus r"))
+                            hl.bind("SUPER + SHIFT + H", hl.dsp.layout("swapcol l"))
+                            hl.bind("SUPER + SHIFT + L", hl.dsp.layout("swapcol r"))
+                        end
+                    '')
+                ];
             };
             device = [
                 {
-                    name = "elan2204:00-04f3:30f5-touchpad";
-                    sensitivity = 0.175;
+                    _args = [{
+                        name = "elan2204:00-04f3:30f5-touchpad";
+                        sensitivity = 0.175;
+                    }];
                 }
                 {
-                    name = "logitech-mx-ergo-1";
-                    sensitivity = -0.85;
+                    _args = [{
+                        name = "logitech-mx-ergo-1";
+                        sensitivity = -0.85;
+                    }];
                 }
             ];
-            misc.disable_hyprland_logo = true;
-            cursor.no_warps = true;
-            ecosystem = {
-                no_update_news = true;
-                no_donation_nag = true;
-            };
-            monitor = ", preferred, auto, 1";
-            bind = [
-                "SUPER, H, movefocus, l"
-                "SUPER, J, movefocus, d"
-                "SUPER, K, movefocus, u"
-                "SUPER, L, movefocus, r"
-                "SUPER SHIFT, H, movewindow, l"
-                "SUPER SHIFT, J, movewindow, d"
-                "SUPER SHIFT, K, movewindow, u"
-                "SUPER SHIFT, L, movewindow, r"
-                "SUPER, T, exec, hyprctl keyword general:layout scrolling"
-                "SUPER, T, submap, scrolling"
+            animation = [
+                {
+                    leaf = "windows";
+                    enabled = true;
+                    speed = 3;
+                    bezier = "custom";
+                    style = "popin 10%";
+                }
+                {
+                    leaf = "layers";
+                    enabled = true;
+                    speed = 2.5;
+                    bezier = "custom";
+                    style = "slide bottom";
+                }
             ];
-            bindlru = [ "SUPER, S, exec, systemctl suspend" ];
-            bindru = [ "SUPER, Q, killactive" ];
-            bindmu = [
-                "SUPER, mouse:272, movewindow"
-                "SUPER, mouse:273, resizewindow"
-            ];
-            bindu = [
-                "SUPER, F, fullscreen, 1"
-                "SUPER SHIFT, F, fullscreen, 0"
-                "SUPER, C, exec, foot"
-                "SUPER, D, exec, firefox"
-                "SUPER SHIFT, D, exec, firefox --private-window"
-                "SUPER, space, exec, hyprlauncher"
-                "SUPER, V, exec, cliphist list | hyprlauncher -m | cliphist decode | wl-copy"
-                "SUPER, P, exec, hyprshot -m region -o ~/Downloads/"
-                ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
-                ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-                ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-                ", XF86MonBrightnessUp, exec, brightnessctl set 1%+"
-                ", XF86MonBrightnessDown, exec, brightnessctl set 1%-"
-            ];
-            windowrule = [{
-                name = "fullscreen";
-                "match:fullscreen" = true;
+            curve = [{
+                _args = [
+                    "custom" {
+                        type = "bezier";
+                        points = [
+                            [ 0.15 0 ]
+                            [ 0.25 1 ]
+                        ];
+                    }
+                ];
+            }];
+            window_rule = [{
+                match.fullscreen = true;
                 border_size = 0;
             }];
-            layerrule = [
+            layer_rule = [
                 {
-                    name = "hyprpaper";
-                    "match:namespace" = "hyprpaper";
+                    match.namespace = "hyprpaper";
                     animation = "fade";
                 }
                 {
-                    name = "hyprshot";
-                    "match:namespace" = "selection";
+                    match.namespace = "selection";
                     animation = "fade";
                 }
                 {
-                    name = "syshud";
-                    "match:namespace" = "syshud";
+                    match.namespace = "syshud";
                     animation = "slide, top";
                 }
             ];
-            dwindle.force_split = 2;
-            scrolling.column_width = 0.75;
         };
-        submaps.scrolling.settings.bind = [
-            "SUPER, H, layoutmsg, focus l"
-            "SUPER, L, layoutmsg, focus r"
-            "SUPER SHIFT, H, layoutmsg, swapcol l"
-            "SUPER SHIFT, L, layoutmsg, swapcol r"
-            "SUPER, T, exec, hyprctl keyword general:layout dwindle"
-            "SUPER, T, submap, reset"
-        ];
     };
 }
