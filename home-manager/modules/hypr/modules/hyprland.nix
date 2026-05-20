@@ -40,12 +40,14 @@
                     no_update_news = true;
                     no_donation_nag = true;
                 };
-                monitor = [{
-                    output = "";
-                    mode = "preferred";
-                    position = "auto";
-                    scale = 1;
-                }];
+                monitor = lib.generators.mkLuaInline ''
+                    hl.monitor({
+                        output = "",
+                        mode = "preferred",
+                        position = "auto",
+                        scale = 1.0
+                    })
+                '';
                 dwindle.force_split = 2;
                 scrolling.column_width = 0.75;
             };
