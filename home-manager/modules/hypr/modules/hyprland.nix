@@ -181,6 +181,16 @@
                     animation = "slide, top";
                 }
             ];
+            on = {
+                _args = [
+                    "config.reloaded"
+                    (lib.generators.mkLuaInline ''
+                        function()
+                            hl.dispatch(hl.dsp.submap("reset"))
+                        end
+                    '')
+                ];
+            };
         };
     };
 }
