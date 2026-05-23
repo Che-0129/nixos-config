@@ -1,4 +1,4 @@
-{ nixvim, pkgs, ... }: {
+{ config, nixvim, pkgs, ... }: {
     imports = [ nixvim.homeModules.nixvim ];
     programs.nixvim = {
         enable = true;
@@ -92,11 +92,12 @@
             neoscroll.enable = true;
             treesitter = {
                 enable = true;
-                grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
                     c
                     css
                     html
                     json
+                    lua
                     nix
                     python
                 ];
