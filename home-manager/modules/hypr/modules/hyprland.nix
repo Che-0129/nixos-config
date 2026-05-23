@@ -186,7 +186,9 @@
                     "config.reloaded"
                     (lib.generators.mkLuaInline ''
                         function()
-                            hl.dispatch(hl.dsp.submap("reset"))
+                            hl.timer(function()
+                                hl.dispatch(hl.dsp.submap("reset"))
+                            end, { timeout = 100, type = "oneshot" })
                         end
                     '')
                 ];
