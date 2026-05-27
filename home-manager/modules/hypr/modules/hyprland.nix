@@ -98,7 +98,7 @@
                 '') { submap_universal = true; } ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
-                        local time = os.date("%H:%M")
+                        local time = os.date("%m/%d (%a) %R")
                         hl.notification.create({
                             text = "🕓️ "..time,
                             duration = 3000,
