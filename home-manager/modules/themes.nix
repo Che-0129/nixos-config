@@ -1,6 +1,7 @@
 { pkgs, ... }: {
     gtk = {
         enable = true;
+        colorScheme = "dark";
         font.name = "Noto Sans CJK JP";
         iconTheme = {
             name = "Arc";
