@@ -45,12 +45,14 @@
                     min-height: 0 !important;
                 }
                 #back-button,
+                #eme-notification-icon,
                 #forward-button,
                 #identity-permission-box,
                 #picture-in-picture-button,
                 #reader-mode-button,
                 #sidebar-button,
                 #star-button-box,
+                .titlebar-close,
                 #trust-icon-container,
                 #unified-extensions-button,
                 #vertical-spacer {
