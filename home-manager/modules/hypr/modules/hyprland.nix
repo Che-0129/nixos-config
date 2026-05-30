@@ -49,7 +49,10 @@
                     })
                 '';
                 dwindle.force_split = 2;
-                scrolling.column_width = 0.75;
+                scrolling = {
+                    column_width = 0.75;
+                    explicit_column_widths = "0.75, 1.0";
+                };
             };
             bind = [
                 { _args = [ "SUPER + C" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot')") { submap_universal = true; } ]; }
@@ -75,7 +78,7 @@
                 { _args = [ "SUPER + SHIFT + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
                 { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; submap_universal = true; } ]; }
                 { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; submap_universal = true; } ]; }
-                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = 1 })") { submap_universal = true; } ]; }
+                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = 'maximized' })") ]; }
                 { _args = [ "SUPER + T" (lib.generators.mkLuaInline ''
                     function()
                         local current_layout = hl.get_config("general.layout")
@@ -118,6 +121,7 @@
                             hl.bind("SUPER + L", hl.dsp.layout("focus r"))
                             hl.bind("SUPER + SHIFT + H", hl.dsp.layout("swapcol l"))
                             hl.bind("SUPER + SHIFT + L", hl.dsp.layout("swapcol r"))
+                            hl.bind("SUPER + F", hl.dsp.layout("colresize +conf"))
                         end
                     '')
                 ];
