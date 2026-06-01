@@ -4,20 +4,15 @@
         settings = {
             config = {
                 general = {
-                    border_size = 2;
-                    gaps_in = 2;
-                    gaps_out = 4;
-                    col = {
-                        inactive_border = "rgb(404552)";
-                        active_border = "rgb(5294e2)";
-                    };
+                    border_size = 0;
+                    gaps_in = 4;
+                    gaps_out = 8;
                     no_focus_fallback = true;
                 };
                 decoration = {
                     rounding = 8;
+                    inactive_opacity = 0.75;
                     dim_inactive = true;
-                    blur.enabled = false;
-                    shadow.enabled = false;
                 };
                 input = {
                     kb_layout = "jp";
@@ -44,7 +39,6 @@
                     hl.monitor({
                         output = "",
                         mode = "preferred",
-                        position = "auto",
                         scale = 1.0
                     })
                 '';
@@ -169,7 +163,7 @@
             }];
             window_rule = [{
                 match.fullscreen = true;
-                border_size = 0;
+                no_shadow = true;
             }];
             layer_rule = [
                 {
