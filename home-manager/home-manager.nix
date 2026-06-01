@@ -5,7 +5,7 @@
         ./modules/inputMethod/inputMethod.nix
         ./modules/pkgs.nix
         ./modules/programs/programs.nix
-        ./modules/services.nix
+        ./modules/services/services.nix
         ./modules/themes.nix
     ];
     home.stateVersion = "26.05";
