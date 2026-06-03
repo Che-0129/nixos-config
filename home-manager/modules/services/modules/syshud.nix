@@ -8,6 +8,8 @@
         };
     };
     home.file.".config/sys64/hud/style.css".text = ''
+        #syshud .box_layout { background: #313742e6; }
+        #syshud label { color: @theme_fg_color; }
         #syshud scale trough {
             border-radius: 4px;
             opacity: 1.0;
@@ -18,7 +20,7 @@
             border: none;
         }
         #syshud .muted scale highlight { background: transparent; }
-        #syshud .muted label { color: alpha(@theme_fg_color, 0.25); }
+        #syshud .muted label { color: alpha(@theme_fg_color, 0.5); }
     '';
     systemd.user.services.syshud.Service.Environment = [
         "GTK_ICON_THEME=Adwaita"
