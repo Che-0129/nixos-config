@@ -4,8 +4,8 @@
         colorScheme = "dark";
         font.name = "Noto Sans CJK JP";
         iconTheme = {
-            name = "Adwaita";
-            package = pkgs.adwaita-icon-theme;
+            name = "Arc";
+            package = pkgs.arc-icon-theme;
         };
         theme = {
             name = "Arc-Dark";
