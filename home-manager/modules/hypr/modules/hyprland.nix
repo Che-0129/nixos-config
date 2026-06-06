@@ -46,6 +46,7 @@
                 scrolling = {
                     column_width = 0.75;
                     explicit_column_widths = "0.75, 1.0";
+                    wrap_swapcol = false;
                 };
             };
             bind = [
