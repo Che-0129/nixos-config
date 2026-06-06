@@ -20,6 +20,7 @@
             };
             settings = {
                 "browser.ai.control.sidebarChatbot" = "blocked";
+                "browser.newtabpage.activity-stream.nova.enabled" = false;
                 "browser.newtabpage.activity-stream.showSponsored" = false;
                 "browser.tabs.closeWindowWithLastTab" = false;
                 "browser.toolbars.bookmarks.visibility" = "never";
