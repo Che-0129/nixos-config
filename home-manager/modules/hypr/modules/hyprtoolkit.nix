@@ -4,7 +4,6 @@
         file.".config/hypr/hyprtoolkit.conf".text = ''
             background = rgb(383c4a)
             accent = rgb(5294e2)
-            icon_theme = Adwaita
             font_family = Noto Sans CJK JP
             font_family_monospace = Moralerspace Neon HW
         '';

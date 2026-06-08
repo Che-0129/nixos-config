@@ -24,10 +24,7 @@
                 "browser.newtabpage.activity-stream.showSponsored" = false;
                 "browser.tabs.closeWindowWithLastTab" = false;
                 "browser.toolbars.bookmarks.visibility" = "never";
-                "browser.uiCustomization.navBarWhenVerticalTabs" = [
-                    "urlbar-container"
-                    "downloads-button"
-                ];
+                "browser.uiCustomization.navBarWhenVerticalTabs" = [ "urlbar-container" "downloads-button" ];
                 "browser.urlbar.suggest" = false;
                 "browser.urlbar.trimURLs" = false;
                 "browser.quitShortcut.disabled" = true;

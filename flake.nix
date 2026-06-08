@@ -1,27 +1,27 @@
 {
     inputs = {
-        disko.url = "github:nix-community/disko";
-        home-manager.url = "github:nix-community/home-manager";
         nixpkgs.url = "nixpkgs/nixos-unstable";
+        home-manager.url = "github:nix-community/home-manager";
         nixvim.url = "github:nix-community/nixvim";
+        disko.url = "github:nix-community/disko";
     };
-    outputs = { disko, home-manager, nixpkgs, nixvim, ... }: {
+    outputs = { nixpkgs, home-manager, nixvim, disko, ... }: {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
             modules = [
-                disko.nixosModules.disko
-                ./disko.nix
                 ./configuration/configuration.nix
+                ./disko.nix
+                disko.nixosModules.disko
                 home-manager.nixosModules.home-manager {
                     home-manager = {
-                        backupFileExtension = "hm-backup";
-                        extraSpecialArgs = { inherit nixvim; };
                         useGlobalPkgs = true;
-                        users.che = ./home-manager/home-manager.nix;
                         useUserPackages = true;
+                        users.che = ./home-manager/home-manager.nix;
+                        extraSpecialArgs = { inherit nixvim; };
+                        backupFileExtension = "hm-backup";
                     };
                 }
             ];
-            system = "x86_64-linux";
         };
     };
 }

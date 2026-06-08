@@ -4,6 +4,7 @@
         loginShellInit = ''start-hyprland'';
         shellAliases = {
             dl = "cd ~/Downloads";
+            dls = "cd ~/Downloads && ls";
             sp = "systemctl suspend";
             rb = "systemctl reboot";
             sd = "systemctl poweroff";

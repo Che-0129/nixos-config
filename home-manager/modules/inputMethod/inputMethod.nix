@@ -39,5 +39,5 @@
         };
         type = "fcitx5";
     };
-    xdg.configFile."mozc/config1.db".source = ./config1.db;
+    home.file.".config/mozc/config1.db".source = ./config1.db;
 }
