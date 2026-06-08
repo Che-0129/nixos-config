@@ -8,7 +8,7 @@
         };
     };
     home.file.".config/sys64/hud/style.css".text = ''
-        #syshud .box_layout { background: #313742e6; }
+        #syshud .box_layout { background: #313742; }
         #syshud label { color: @theme_fg_color; }
         #syshud scale trough {
             border-radius: 4px;

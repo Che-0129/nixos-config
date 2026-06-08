@@ -11,8 +11,8 @@
                 };
                 decoration = {
                     rounding = 8;
-                    inactive_opacity = 0.75;
                     dim_inactive = true;
+                    blur.enabled = false;
                 };
                 input = {
                     kb_layout = "jp";
