@@ -1,4 +1,13 @@
-{ lib, ... }: {
+{ lib, ... }:
+let
+    mkBind = keys: luaDispatcher: flags: {
+        _args = [
+            keys
+            (lib.generators.mkLuaInline luaDispatcher)
+        ] ++ lib.optional (flags != {}) flags;
+    };
+in
+{
     wayland.windowManager.hyprland = {
         enable = true;
         settings = {
@@ -35,13 +44,7 @@
                     no_update_news = true;
                     no_donation_nag = true;
                 };
-                monitor = lib.generators.mkLuaInline ''
-                    hl.monitor({
-                        output = "",
-                        mode = "preferred",
-                        scale = 1.0
-                    })
-                '';
+                monitor = lib.generators.mkLuaInline ''hl.monitor({ output = "", mode = "preferred", scale = 1.0 })'';
                 dwindle.force_split = 2;
                 scrolling = {
                     column_width = 0.75;
@@ -50,51 +53,43 @@
                 };
             };
             bind = [
-                { _args = [ "SUPER + C" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + SHIFT + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox --private-window')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + space" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprlauncher')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprshot -m region -o ~/Downloads/')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; submap_universal = true; } ]; }
-                { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") { mouse = true; submap_universal = true; } ]; }
-                { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") { submap_universal = true; } ]; }
-                { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") { submap_universal = true; } ]; }
-                { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") { submap_universal = true; } ]; }
-                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%-')") { submap_universal = true; } ]; }
-                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%+')") { submap_universal = true; } ]; }
-                { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'l' })") ]; }
-                { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'd' })") ]; }
-                { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'u' })") ]; }
-                { _args = [ "SUPER + L" (lib.generators.mkLuaInline "hl.dsp.focus({ direction = 'r' })") ]; }
-                { _args = [ "SUPER + SHIFT + H" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'l' })") ]; }
-                { _args = [ "SUPER + SHIFT + J" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'd' })") ]; }
-                { _args = [ "SUPER + SHIFT + K" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'u' })") ]; }
-                { _args = [ "SUPER + SHIFT + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
-                { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; submap_universal = true; } ]; }
-                { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; submap_universal = true; } ]; }
-                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = 'maximized' })") ]; }
-                { _args = [ "SUPER + T" (lib.generators.mkLuaInline ''
+                (mkBind "SUPER + C"  "hl.dsp.exec_cmd('foot')" { submap_universal = true; })
+                (mkBind "SUPER + D"  "hl.dsp.exec_cmd('firefox')" { submap_universal = true; })
+                (mkBind "SUPER + SHIFT + D" "hl.dsp.exec_cmd('firefox --private-window')" { submap_universal = true; })
+                (mkBind "SUPER + space" "hl.dsp.exec_cmd('hyprlauncher')" { submap_universal = true; })
+                (mkBind "SUPER + V" "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')" { submap_universal = true; })
+                (mkBind "SUPER + P" "hl.dsp.exec_cmd('hyprshot -m region -o ~/Downloads/')" { submap_universal = true; })
+                (mkBind "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; submap_universal = true; })
+                (mkBind "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; submap_universal = true; })
+                (mkBind "XF86AudioLowerVolume" "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')" { submap_universal = true; })
+                (mkBind "XF86AudioRaiseVolume" "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')" { submap_universal = true; })
+                (mkBind "XF86AudioMute" "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')" { submap_universal = true; })
+                (mkBind "XF86MonBrightnessDown" "hl.dsp.exec_cmd('brightnessctl set 1%-')" { submap_universal = true; })
+                (mkBind "XF86MonBrightnessUp" "hl.dsp.exec_cmd('brightnessctl set 1%+')" { submap_universal = true; })
+                (mkBind "SUPER + H" "hl.dsp.focus({ direction = 'l' })" {})
+                (mkBind "SUPER + J" "hl.dsp.focus({ direction = 'd' })" {})
+                (mkBind "SUPER + K" "hl.dsp.focus({ direction = 'u' })" {})
+                (mkBind "SUPER + L" "hl.dsp.focus({ direction = 'r' })" {})
+                (mkBind "SUPER + SHIFT + H" "hl.dsp.window.move({ direction = 'l' })" {})
+                (mkBind "SUPER + SHIFT + J" "hl.dsp.window.move({ direction = 'd' })" {})
+                (mkBind "SUPER + SHIFT + K" "hl.dsp.window.move({ direction = 'u' })" {})
+                (mkBind "SUPER + SHIFT + L" "hl.dsp.window.move({ direction = 'r' })" {})
+                (mkBind "SUPER + Q" "hl.dsp.window.close()" { release = true; submap_universal = true; })
+                (mkBind "SUPER + S" "hl.dsp.exec_cmd('systemctl suspend')" { locked = true; release = true; submap_universal = true; })
+                (mkBind "SUPER + F" "hl.dsp.window.fullscreen({ mode = 'maximized' })" {})
+                (mkBind "SUPER + T" ''
                     function()
                         local current_layout = hl.get_config("general.layout")
                         if current_layout == "dwindle" then
-                            hl.config({
-                                general = {
-                                    layout = "scrolling"
-                                }
-                            })
+                            hl.config({ general = { layout = "scrolling" } })
                             hl.dispatch(hl.dsp.submap("scrolling"))
                         elseif current_layout == "scrolling" then
-                            hl.config({
-                                general = {
-                                    layout = "dwindle"
-                                }
-                            })
+                            hl.config({ general = { layout = "dwindle" } })
                             hl.dispatch(hl.dsp.submap("reset"))
                         end
                     end
-                '') { submap_universal = true; } ]; }
-                { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
+                '' { submap_universal = true; })
+                (mkBind "SUPER + W" ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
                         hl.notification.create({
@@ -105,7 +100,7 @@
                             icon = "NONE",
                         })
                     end
-                '') { submap_universal = true; } ]; }
+                '' { submap_universal = true; })
             ];
             define_submap = {
                 _args = [
