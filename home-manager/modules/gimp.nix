@@ -1,7 +1,7 @@
 { pkgs, ... }: {
     home = {
         packages = [ pkgs.gimp ];
-        file.".config/GIMP/3.0/gimprc".text = ''
+        file.".config/GIMP/3.2/gimprc".text = ''
             (toolbox-wilber no)
             (toolbox-groups no)
             (theme "System")
