@@ -38,6 +38,7 @@ in
                 misc = {
                     disable_hyprland_logo = true;
                     font_family = "Moralerspace Neon HW";
+                    focus_on_activate = true;
                 };
                 cursor.no_warps = true;
                 ecosystem = {
