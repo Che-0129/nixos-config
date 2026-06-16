@@ -6,7 +6,8 @@
             enable = true;
             clean = {
                 enable = true;
-                extraArgs = "--keep 3 --keep-since 1d";
+                dates = "daily";
+                extraArgs = "--keep 3";
             };
             flake = "/home/che/.nixos-config";
         };
