@@ -1,9 +1,18 @@
 {
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        home-manager.url = "github:nix-community/home-manager";
-        nixvim.url = "github:nix-community/nixvim";
-        disko.url = "github:nix-community/disko";
+        home-manager = {
+            inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:nix-community/home-manager";
+        };
+        nixvim = {
+            inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:nix-community/nixvim";
+        };
+        disko = {
+            inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:nix-community/disko";
+        };
     };
     outputs = { nixpkgs, home-manager, nixvim, disko, ... }: {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {
