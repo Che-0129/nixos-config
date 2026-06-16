@@ -5,6 +5,7 @@
         extraPlugins = [ pkgs.vimPlugins.onenord-nvim ];
         defaultEditor = true;
         nixpkgs.config.allowUnfree = true;
+        nixpkgs.source = pkgs.path;
         opts = {
             autoindent = true;
             autoread = true;
