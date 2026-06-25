@@ -1,11 +1,11 @@
 { stdenvNoCC, fetchFromGitHub, ... }: stdenvNoCC.mkDerivation {
     pname = "fcitx5-arc-theme";
-    version = "0-unstable-2025-11-07";
+    version = "0-unstable-2026-06-26";
     src = fetchFromGitHub {
-        owner = "Kienyew";
+        owner = "Che-0129";
         repo = "fcitx5-arc-theme";
-        rev = "78a54e89a8d3717ab149976c26d6b4b2fde13f11";
-        hash = "sha256-Fb5nP099D/hvw+WrJ2VxvwiNqaG4SzrLNhsPUe1j/6Q=";
+        rev = "dbade7c74b87299280c2f0c4d50922834eaee723";
+        hash = "sha256-XBj4vlXpdajkJbU/rCoiO8HZnVns8TxRnsyR1Q9BSRY=";
     };
     installPhase = ''
         runHook preInstall
