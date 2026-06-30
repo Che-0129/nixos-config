@@ -11,6 +11,7 @@
         kicad
         p7zip
         payload-dumper-go
+        picotool
         qmk
         telegram-desktop
         trash-cli
