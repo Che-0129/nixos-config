@@ -19,7 +19,7 @@
                 outer_color = "rgba(5294e2bf)";
                 inner_color = "rgba(404552bf)";
                 font_color = "rgb(ffffff)";
-                position = "0, -70";
+                position = "0, -65";
             };
             label = [
                 {
@@ -52,7 +52,7 @@
                     shadow_color = "rgb(5294e2)";
                     shadow_boost = 4;
                     font_family = "Moralerspace Neon HW";
-                    position = "0, -180";
+                    position = "0, -185";
                 }
             ];
         };
