@@ -40,7 +40,7 @@
                 monitor = lib.generators.mkLuaInline ''hl.monitor({ output = "", mode = "preferred", scale = 1.0 })'';
                 scrolling = {
                     column_width = 0.75;
-                    explicit_column_widths = "0.5, 0.75, 1.0";
+                    explicit_column_widths = "0.75, 1.0";
                     wrap_swapcol = false;
                 };
             };
@@ -70,8 +70,9 @@
                 { _args = [ "SUPER + CTRL + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
                 { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; } ]; }
                 { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
-                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize -conf')") ]; }
-                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
+                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
+                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize -0.25')") ]; }
+                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +0.25')") ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
