@@ -8,6 +8,7 @@
         dos2unix
         eza
         git
+        jujutsu
         kicad
         p7zip
         payload-dumper-go
