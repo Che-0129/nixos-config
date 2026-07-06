@@ -5,7 +5,6 @@
         shellAliases = {
             dl = "cd ~/Downloads";
             dls = "cd ~/Downloads && ls";
-            sp = "systemctl suspend";
             rb = "systemctl reboot";
             sd = "systemctl poweroff";
             rm = "trash-put";
@@ -26,7 +25,11 @@
                 end
             end
             function nh
-                systemd-inhibit --what=sleep -- nh $argv
+                if test "$argv[1]" = os -a "$argv[2]" = switch
+                    systemd-inhibit --what=sleep -- nh $argv --commit-lock-file
+                else
+                    systemd-inhibit --what=sleep -- nh $argv
+                end
             end
         '';
     };
