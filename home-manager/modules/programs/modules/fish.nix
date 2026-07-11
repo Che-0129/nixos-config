@@ -25,11 +25,7 @@
                 end
             end
             function nh
-                if test "$argv[1]" = os -a "$argv[2]" = switch
-                    systemd-inhibit --what=sleep -- nh $argv --commit-lock-file
-                else
-                    systemd-inhibit --what=sleep -- nh $argv
-                end
+                systemd-inhibit --what=sleep -- nh $argv
             end
         '';
     };
