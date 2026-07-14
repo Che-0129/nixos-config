@@ -17,6 +17,7 @@
     }];
     zramSwap = {
         enable = true;
+        memoryPercent = 100;
         priority = 100;
     };
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
