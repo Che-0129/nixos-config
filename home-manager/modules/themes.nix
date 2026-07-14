@@ -14,7 +14,6 @@
     };
     home.pointerCursor = {
         enable = true;
-        hyprcursor.enable = true;
         name = "Adwaita";
         package = pkgs.adwaita-icon-theme;
         size = 24;
