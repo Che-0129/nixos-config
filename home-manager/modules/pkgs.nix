@@ -6,7 +6,6 @@
         brightnessctl
         discord
         dos2unix
-        eza
         git
         jujutsu
         kicad

@@ -1,5 +1,6 @@
 { ... }: {
     imports = [
+        ./modules/eza.nix
         ./modules/firefox.nix
         ./modules/fish.nix
         ./modules/foot.nix

@@ -8,9 +8,6 @@
             rb = "systemctl reboot";
             sd = "systemctl poweroff";
             rm = "trash-put";
-            ls = "eza --icons";
-            la = "eza --icons -a";
-            ll = "eza --icons -l";
             less = "bat --theme Nord -p";
             cat = "bat --theme Nord -pp";
             c = "clear";
