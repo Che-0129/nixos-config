@@ -6,5 +6,6 @@
         ./modules/foot.nix
         ./modules/nixvim.nix
         ./modules/thunderbird.nix
+        ./modules/zoxide.nix
     ];
 }
