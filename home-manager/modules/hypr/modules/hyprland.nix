@@ -69,10 +69,10 @@
                 { _args = [ "SUPER + CTRL + K" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'u' })") ]; }
                 { _args = [ "SUPER + CTRL + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
                 { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; } ]; }
+                { _args = [ "SUPER + SHIFT + CTRL + Q" (lib.generators.mkLuaInline "hl.dsp.window.kill()") { release = true; } ]; }
                 { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
                 { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
-                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize -0.25')") ]; }
-                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +0.25')") ]; }
+                { _args = [ "SUPER + G" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 0.5')") ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
