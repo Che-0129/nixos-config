@@ -49,6 +49,7 @@
                 { _args = [ "SUPER + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox')") ]; }
                 { _args = [ "SUPER + SHIFT + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('firefox --private-window')") ]; }
                 { _args = [ "SUPER + space" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprlauncher')") ]; }
+                { _args = [ "SUPER + E" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot -e yazi')") ]; }
                 { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") ]; }
                 { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprshot -m region -o ~/Downloads/')") ]; }
                 { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; } ]; }
