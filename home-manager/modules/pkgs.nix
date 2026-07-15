@@ -13,6 +13,7 @@
         payload-dumper-go
         picotool
         qmk
+        shotcut
         telegram-desktop
         trash-cli
         unzip
