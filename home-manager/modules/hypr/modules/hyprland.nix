@@ -57,8 +57,8 @@
                 { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
                 { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") ]; }
                 { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") ]; }
-                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%-')") ]; }
-                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 1%+')") ]; }
+                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%-')") { locked = true; } ]; }
+                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%+')") { locked = true; } ]; }
                 { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.layout('focus l')") ]; }
                 { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.layout('focus d')") ]; }
                 { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.layout('focus u')") ]; }
