@@ -100,6 +100,12 @@
                         sensitivity = -0.85;
                     }];
                 }
+                {
+                    _args = [{
+                        name = "che-0129-graphium34-mouse";
+                        sensitivity = -0.65;
+                    }];
+                }
             ];
             animation = [
                 {
