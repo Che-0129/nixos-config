@@ -3,8 +3,8 @@
         enable = true;
         settings = {
             general = {
-                lock_cmd = "pidof hyprlock || playerctl pause ; hyprlock";
-                before_sleep_cmd = "loginctl lock-session";
+                lock_cmd = "pidof hyprlock || hyprlock";
+                before_sleep_cmd = "playerctl pause && loginctl lock-session";
                 after_sleep_cmd = "hyprctl dispatch dpms on";
             };
             listener = [
