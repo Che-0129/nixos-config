@@ -103,7 +103,7 @@
                 {
                     _args = [{
                         name = "che-0129-graphium34-mouse";
-                        sensitivity = -0.65;
+                        sensitivity = -0.8;
                     }];
                 }
             ];
