@@ -10,8 +10,7 @@
             rm = "trash-put";
             less = "bat --theme Nord -p";
             cat = "bat --theme Nord -pp";
-            c = "clear";
-            cls = "clear && ls";
+            cl = "clear && ls";
         };
         shellInit = ''
             function sudo
