@@ -1,10 +1,9 @@
-{ config, lib, modulesPath, pkgs, ... }: {
+{ config, lib, modulesPath, ... }: {
     imports = [(modulesPath + "/installer/scan/not-detected.nix")];
     boot = {
         initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
         kernel.sysctl."kernel.sysrq" = 1;
         kernelModules = [ "kvm-amd" ];
-        kernelPackages = pkgs.linuxPackages_zen;
         loader = {
             efi.canTouchEfiVariables = true;
             systemd-boot.enable = true;
