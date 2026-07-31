@@ -8,7 +8,7 @@
             package = pkgs.arc-icon-theme;
         };
         theme = {
-            name = "Arc-Dark";
+            name = "Arc-Dark-solid";
             package = (pkgs.callPackage ./arc-theme.nix {});
         };
     };
