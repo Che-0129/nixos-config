@@ -9,7 +9,7 @@
         };
         theme = {
             name = "Arc-Dark";
-            package = pkgs.arc-theme;
+            package = (pkgs.callPackage ./arc-theme.nix {});
         };
     };
     home.pointerCursor = {
