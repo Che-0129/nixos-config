@@ -29,5 +29,9 @@ stdenv.mkDerivation {
     postPatch = ''patchShebangs meson/install-file.py'';
     preBuild = ''export HOME="$TMPDIR"'';
     FONTCONFIG_FILE = makeFontsConf { fontDirectories = []; };
-    mesonFlags = [ "-Dthemes=gtk3,gtk4" ];
+    mesonFlags = [
+        "-Dthemes=gtk3,gtk4"
+        "-Dvariants=dark"
+        "-Dtransparency=false"
+    ];
 }
