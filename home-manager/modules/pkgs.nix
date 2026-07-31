@@ -3,6 +3,7 @@
         android-tools
         aria2
         bat
+        blender
         brightnessctl
         discord
         dos2unix
