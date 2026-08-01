@@ -8,8 +8,8 @@
             package = pkgs.arc-icon-theme;
         };
         theme = {
-            name = "Arc-Dark-solid";
-            package = (pkgs.callPackage ./arc-theme.nix {});
+            name = "Arc-Dark";
+            package = (pkgs.callPackage ./arc-dark-theme.nix {});
         };
     };
     home.pointerCursor = {

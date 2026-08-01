@@ -10,7 +10,7 @@
     python3,
 }:
 stdenv.mkDerivation {
-    pname = "arc-theme";
+    pname = "arc-dark-theme";
     version = "unstable-2025-10-18";
     src = fetchFromGitHub {
         owner = "jnsh";
@@ -32,6 +32,5 @@ stdenv.mkDerivation {
     mesonFlags = [
         "-Dthemes=gtk3,gtk4"
         "-Dvariants=dark"
-        "-Dtransparency=false"
     ];
 }

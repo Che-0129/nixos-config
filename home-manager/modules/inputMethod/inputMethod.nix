@@ -3,7 +3,7 @@
         enable = true;
         fcitx5 = {
             addons = with pkgs; [
-                (callPackage ./fcitx5-arc-theme.nix {})
+                (callPackage ./fcitx5-arc-dark-theme.nix {})
                 fcitx5-mozc-ut
             ];
             settings = {
