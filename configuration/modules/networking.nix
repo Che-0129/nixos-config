@@ -1,9 +1,12 @@
 { ... }: {
     networking = {
         hostName = "NixOS";
-        networkmanager = {
+        wireless.iwd = {
             enable = true;
-            wifi.backend = "iwd";
+            settings = {
+                Network.EnableIPv6 = true;
+                Settings.AutoConnect = true;
+            };
         };
     };
 }
