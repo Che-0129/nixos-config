@@ -1,12 +1,12 @@
 { stdenvNoCC, fetchFromGitHub }:
 stdenvNoCC.mkDerivation {
     pname = "kicad-libraries";
-    version = "3978918";
+    version = "209c43f";
     src = fetchFromGitHub {
         owner = "Che-0129";
         repo = "KiCAD-Libraries";
-        rev = "3978918";
-        hash = "sha256-vJvoW3giwilmnBszKGlT4T5D/LEK2tOcKR+o3BQ2/uU=";
+        rev = "209c43f";
+        hash = "sha256-fcBc+3vO9oPrvxZ79DmTktEZ2ycB2zeX3r4/iXRj8FQ=";
     };
     installPhase = ''
         mkdir -p $out

@@ -4,8 +4,8 @@
     src = fetchFromGitHub {
         owner = "Che-0129";
         repo = "fcitx5-arc-dark-theme";
-        rev = "78a88b2c26fb944cd323a12b33db5d8c733174f7";
-        hash = "sha256-XBj4vlXpdajkJbU/rCoiO8HZnVns8TxRnsyR1Q9BSRY=";
+        rev = "78a88b2";
+        hash = "sha256-LgCKExd2XwMwFm4mPBwLDH7825DcpMJAW1bBv1TgL9c=";
     };
     installPhase = ''
         runHook preInstall
