@@ -1,9 +1,7 @@
-{ ... }: {
+{ hyprlauncher, pkgs, ... }: {
     services.hyprlauncher = {
         enable = true;
-        settings = {
-            finders.desktop_icons = false;
-            ui.window_size = "600 400";
-        };
+        package = hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher;
+        settings.ui.window_size = "600 400";
     };
 }
