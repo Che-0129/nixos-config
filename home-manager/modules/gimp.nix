@@ -10,6 +10,7 @@
     };
     xdg.desktopEntries."gimp" = {
         exec = "gimp -c %U";
+        icon = "gimp";
         name = "GIMP";
     };
 }
