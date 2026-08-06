@@ -9,6 +9,7 @@
         ./modules/services.nix
         ./modules/user.nix
     ];
+    documentation.nixos.enable = false;
     environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
     nix.settings = {
         auto-optimise-store = true;
