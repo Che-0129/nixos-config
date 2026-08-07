@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
     imports = [
         ./modules/hypridle.nix
         ./modules/hyprland.nix
@@ -7,6 +7,5 @@
         ./modules/hyprpaper.nix
         ./modules/hyprtoolkit.nix
     ];
-    home.packages = [ pkgs.hyprshot ];
     services.hyprpolkitagent.enable = true;
 }

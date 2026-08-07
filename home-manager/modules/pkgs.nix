@@ -8,12 +8,14 @@
         discord
         dos2unix
         git
+        grim
         jujutsu
         kicad
         p7zip
         payload-dumper-go
         picotool
         qmk
+        slurp
         telegram-desktop
         trash-cli
         unzip

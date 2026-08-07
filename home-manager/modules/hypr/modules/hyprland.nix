@@ -51,7 +51,7 @@
                 { _args = [ "SUPER + space" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprlauncher')") ]; }
                 { _args = [ "SUPER + E" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot -e yazi')") ]; }
                 { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") ]; }
-                { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprshot -m region -o ~/Downloads/')") ]; }
+                { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('slurp | grim -g - ~/Downloads/Screenshot_$(date +%Y-%m-%d%H%M).png')") ]; }
                 { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; } ]; }
                 { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") { mouse = true; } ]; }
                 { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
