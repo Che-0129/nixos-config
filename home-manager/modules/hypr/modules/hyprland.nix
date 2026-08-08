@@ -75,7 +75,24 @@
                 { _args = [ "SUPER + SHIFT + CTRL + Q" (lib.generators.mkLuaInline "hl.dsp.window.kill()") { release = true; } ]; }
                 { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
                 { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
+                { _args = [ "SUPER + SHIFT + F" (lib.generators.mkLuaInline ''
+                    function()
+                        local w = hl.get_active_window()
+                        if w == nil then
+                            return
+                        end
+                        local x = w.size.x
+                        if x >= 1896 and x <= 1900 then
+                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
+                        elseif x < 1420 then
+                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
+                        else
+                            hl.dispatch(hl.dsp.layout("colresize all 1.0"))
+                        end
+                    end
+                '') ]; }
                 { _args = [ "SUPER + G" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 0.5')") ]; }
+                { _args = [ "SUPER + SHIFT + G" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
