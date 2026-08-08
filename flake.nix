@@ -5,6 +5,7 @@
             inputs.nixpkgs.follows = "nixpkgs";
             url = "github:nix-community/home-manager";
         };
+        hyprland.url = "github:hyprwm/Hyprland";
         hyprtoolkit.url = "github:hyprwm/hyprtoolkit";
         hyprlauncher = {
             inputs.hyprtoolkit.follows = "hyprtoolkit";
@@ -19,7 +20,7 @@
             url = "github:nix-community/disko";
         };
     };
-    outputs = { nixpkgs, home-manager, hyprtoolkit, hyprlauncher, nixvim, disko, ... }: {
+    outputs = { nixpkgs, home-manager, hyprland, hyprtoolkit, hyprlauncher, nixvim, disko, ... }: {
         nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
@@ -31,7 +32,7 @@
                         useGlobalPkgs = true;
                         useUserPackages = true;
                         users.che = ./home-manager/home-manager.nix;
-                        extraSpecialArgs = { inherit hyprtoolkit hyprlauncher nixvim; };
+                        extraSpecialArgs = { inherit hyprland hyprtoolkit hyprlauncher nixvim; };
                         backupFileExtension = "hm-backup";
                     };
                 }
