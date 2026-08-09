@@ -1,4 +1,4 @@
-{ ... }: {
+{
     imports = [ ./modules/syshud.nix ];
     services = {
         cliphist = {

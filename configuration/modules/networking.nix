@@ -1,4 +1,4 @@
-{ ... }: {
+{
     networking = {
         hostName = "NixOS";
         useNetworkd = true;

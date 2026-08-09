@@ -1,4 +1,4 @@
-{ ... }: {
+{
     services.syshud = {
         enable = true;
         settings = {

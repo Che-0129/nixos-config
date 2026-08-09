@@ -1,4 +1,4 @@
-{ ... }: {
+{
     imports = [
         ./modules/fonts.nix
         ./modules/hardware-configuration.nix

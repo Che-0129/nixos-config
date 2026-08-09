@@ -1,4 +1,4 @@
-{ ... }: {
+{
     imports = [
         ./modules/gimp.nix
         ./modules/hypr/hypr.nix
