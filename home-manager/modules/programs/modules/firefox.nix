@@ -2,7 +2,28 @@
     programs.firefox = {
         enable = true;
         languagePacks = [ "ja" ];
-        policies.RequestedLocales = [ "ja" ];
+        policies = {
+            ExtensionSettings = {
+                "arc-dark-theme@afnankhan" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/arc-dark-theme-we/latest.xpi";
+                    installation_mode = "normal_installed";
+                };
+                "enhancerforyoutube@maximerf.addons.mozilla.org" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
+                    installation_mode = "normal_installed";
+                };
+                "uBlock0@raymondhill.net" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+                    installation_mode = "normal_installed";
+                    private_browsing = true;
+                };
+                "x-dim-mode@juanbuis.com" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/x-dim-mode/latest.xpi";
+                    installation_mode = "normal_installed";
+                };
+            };
+            RequestedLocales = [ "ja" ];
+        };
         profiles.che = {
             isDefault = true;
             search = {
