@@ -2,7 +2,10 @@
     services.hyprlauncher = {
         enable = true;
         package = inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher;
-        settings.ui.window_size = "600 400";
+        settings = {
+            general.show_apps_on_open = true;
+            ui.window_size = "600 400";
+        };
     };
     xdg.desktopEntries = {
         "nvim" = {
