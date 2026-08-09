@@ -54,8 +54,22 @@
                 { _args = [ "SUPER + E" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot -e yazi')") ]; }
                 { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") ]; }
                 { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('slurp | grim -g - ~/Downloads/Screenshot_$(date +%Y-%m-%d%H%M).png')") ]; }
-                { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; } ]; }
-                { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") { mouse = true; } ]; }
+                { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''
+                    function()
+                        local window = hl.get_active_window()
+                        if window.floating then
+                            hl.dispatch(hl.dsp.window.drag())
+                        end
+                    end
+                '') { mouse = true; } ]; }
+                { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline ''
+                    function()
+                        local window = hl.get_active_window()
+                        if window.floating then
+                            hl.dispatch(hl.dsp.window.resize())
+                        end
+                    end
+                '') { mouse = true; } ]; }
                 { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
                 { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") ]; }
                 { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") ]; }
@@ -82,17 +96,43 @@
                             return
                         end
                         local x = w.size.x
-                        if x >= 1896 and x <= 1900 then
+                        if x >= 944 and x <= 948 then
                             hl.dispatch(hl.dsp.layout("colresize all 0.75"))
-                        elseif x < 1420 then
-                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
-                        else
+                        elseif x >= 1420 and x <= 1424 then
                             hl.dispatch(hl.dsp.layout("colresize all 1.0"))
+                        elseif x >= 1896 and x <= 1900 then
+                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
                         end
                     end
                 '') ]; }
-                { _args = [ "SUPER + G" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 0.5')") ]; }
-                { _args = [ "SUPER + SHIFT + G" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
+                { _args = [ "SUPER + G" (lib.generators.mkLuaInline ''
+                    function()
+                        local w = hl.get_active_window()
+                        if w == nil then
+                            return
+                        end
+                        local x = w.size.x
+                        if x >= 1420 and x <= 1424 then
+                            hl.dispatch(hl.dsp.layout("colresize 0.5"))
+                        elseif x >= 944 and x <= 948 then
+                            hl.dispatch(hl.dsp.layout("colresize 0.75"))
+                        end
+                    end
+                '') ]; }
+                { _args = [ "SUPER + SHIFT + G" (lib.generators.mkLuaInline ''
+                    function()
+                        local w = hl.get_active_window()
+                        if w == nil then
+                            return
+                        end
+                        local x = w.size.x
+                        if x >= 1420 and x <= 1424 then
+                            hl.dispatch(hl.dsp.layout("colresize all 0.5"))
+                        elseif x >= 944 and x <= 948 then
+                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
+                        end
+                    end
+                '') ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
