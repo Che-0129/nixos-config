@@ -1,6 +1,6 @@
-{ hyprtoolkit, pkgs, ... }: {
+{ inputs, pkgs, ... }: {
     home = {
-        packages = [ hyprtoolkit.packages.${pkgs.stdenv.hostPlatform.system}.hyprtoolkit ];
+        packages = [ inputs.hyprtoolkit.packages.${pkgs.stdenv.hostPlatform.system}.hyprtoolkit ];
         file.".config/hypr/hyprtoolkit.conf".text = ''
             background = rgb(383c4a)
             accent = rgb(5294e2)

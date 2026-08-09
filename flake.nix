@@ -20,19 +20,19 @@
             url = "github:nix-community/disko";
         };
     };
-    outputs = { nixpkgs, home-manager, hyprland, hyprtoolkit, hyprlauncher, nixvim, disko, ... }: {
-        nixosConfigurations.NixOS = nixpkgs.lib.nixosSystem {
+    outputs = inputs: {
+        nixosConfigurations.NixOS = inputs.nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
                 ./configuration/configuration.nix
                 ./disko.nix
-                disko.nixosModules.disko
-                home-manager.nixosModules.home-manager {
+                inputs.disko.nixosModules.disko
+                inputs.home-manager.nixosModules.home-manager {
                     home-manager = {
                         useGlobalPkgs = true;
                         useUserPackages = true;
                         users.che = ./home-manager/home-manager.nix;
-                        extraSpecialArgs = { inherit hyprland hyprtoolkit hyprlauncher nixvim; };
+                        extraSpecialArgs = { inherit inputs; };
                         backupFileExtension = "hm-backup";
                     };
                 }
