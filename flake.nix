@@ -5,7 +5,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
             url = "github:nix-community/home-manager";
         };
-        hyprland.url = "github:hyprwm/Hyprland";
         hyprtoolkit.url = "github:hyprwm/hyprtoolkit";
         hyprlauncher = {
             inputs.hyprtoolkit.follows = "hyprtoolkit";
