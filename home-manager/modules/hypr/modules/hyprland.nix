@@ -52,6 +52,26 @@
                 { _args = [ "SUPER + E" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot -e yazi')") ]; }
                 { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") ]; }
                 { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('slurp | grim -g - ~/Downloads/Screenshot_$(date +%Y-%m-%d%H%M).png')") ]; }
+                { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
+                { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") ]; }
+                { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") ]; }
+                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%-')") { locked = true; } ]; }
+                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%+')") { locked = true; } ]; }
+                { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.layout('focus l')") ]; }
+                { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.layout('focus d')") ]; }
+                { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.layout('focus u')") ]; }
+                { _args = [ "SUPER + L" (lib.generators.mkLuaInline "hl.dsp.layout('focus r')") ]; }
+                { _args = [ "SUPER + SHIFT + H" (lib.generators.mkLuaInline "hl.dsp.layout('consume_or_expel prev')") ]; }
+                { _args = [ "SUPER + SHIFT + J" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'd' })") ]; }
+                { _args = [ "SUPER + SHIFT + K" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'u' })") ]; }
+                { _args = [ "SUPER + SHIFT + L" (lib.generators.mkLuaInline "hl.dsp.layout('consume_or_expel next')") ]; }
+                { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; } ]; }
+                { _args = [ "SUPER + SHIFT + CTRL + Q" (lib.generators.mkLuaInline "hl.dsp.window.kill()") { release = true; } ]; }
+                { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
+                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
+                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
+                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.75')") ]; }
+                { _args = [ "SUPER + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 1.0')") ]; }
                 { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''
                     function()
                         local window = hl.get_active_window()
@@ -68,69 +88,6 @@
                         end
                     end
                 '') { mouse = true; } ]; }
-                { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
-                { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") ]; }
-                { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") ]; }
-                { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%-')") { locked = true; } ]; }
-                { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%+')") { locked = true; } ]; }
-                { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.layout('focus l')") ]; }
-                { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.layout('focus d')") ]; }
-                { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.layout('focus u')") ]; }
-                { _args = [ "SUPER + L" (lib.generators.mkLuaInline "hl.dsp.layout('focus r')") ]; }
-                { _args = [ "SUPER + SHIFT + H" (lib.generators.mkLuaInline "hl.dsp.layout('swapcol l')") ]; }
-                { _args = [ "SUPER + SHIFT + L" (lib.generators.mkLuaInline "hl.dsp.layout('swapcol r')") ]; }
-                { _args = [ "SUPER + CTRL + H" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'l' })") ]; }
-                { _args = [ "SUPER + CTRL + J" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'd' })") ]; }
-                { _args = [ "SUPER + CTRL + K" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'u' })") ]; }
-                { _args = [ "SUPER + CTRL + L" (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = 'r' })") ]; }
-                { _args = [ "SUPER + Q" (lib.generators.mkLuaInline "hl.dsp.window.close()") { release = true; } ]; }
-                { _args = [ "SUPER + SHIFT + CTRL + Q" (lib.generators.mkLuaInline "hl.dsp.window.kill()") { release = true; } ]; }
-                { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
-                { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
-                { _args = [ "SUPER + SHIFT + F" (lib.generators.mkLuaInline ''
-                    function()
-                        local w = hl.get_active_window()
-                        if w == nil then
-                            return
-                        end
-                        local x = w.size.x
-                        if x >= 944 and x <= 948 then
-                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
-                        elseif x >= 1420 and x <= 1424 then
-                            hl.dispatch(hl.dsp.layout("colresize all 1.0"))
-                        elseif x >= 1896 and x <= 1900 then
-                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
-                        end
-                    end
-                '') ]; }
-                { _args = [ "SUPER + G" (lib.generators.mkLuaInline ''
-                    function()
-                        local w = hl.get_active_window()
-                        if w == nil then
-                            return
-                        end
-                        local x = w.size.x
-                        if x >= 1420 and x <= 1424 then
-                            hl.dispatch(hl.dsp.layout("colresize 0.5"))
-                        elseif x >= 944 and x <= 948 then
-                            hl.dispatch(hl.dsp.layout("colresize 0.75"))
-                        end
-                    end
-                '') ]; }
-                { _args = [ "SUPER + SHIFT + G" (lib.generators.mkLuaInline ''
-                    function()
-                        local w = hl.get_active_window()
-                        if w == nil then
-                            return
-                        end
-                        local x = w.size.x
-                        if x >= 1420 and x <= 1424 then
-                            hl.dispatch(hl.dsp.layout("colresize all 0.5"))
-                        elseif x >= 944 and x <= 948 then
-                            hl.dispatch(hl.dsp.layout("colresize all 0.75"))
-                        end
-                    end
-                '') ]; }
                 { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
                     function()
                         local time = os.date("%m/%d (%a) %R")
