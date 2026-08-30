@@ -95,6 +95,7 @@
                 enable = true;
                 grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
                     c
+                    cpp
                     css
                     html
                     json
