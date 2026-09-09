@@ -31,6 +31,7 @@
                     disable_hyprland_logo = true;
                     font_family = "Moralerspace Neon HW";
                     focus_on_activate = true;
+                    middle_click_paste = false;
                 };
                 cursor.no_warps = true;
                 ecosystem = {
@@ -69,9 +70,12 @@
                 { _args = [ "SUPER + SHIFT + CTRL + Q" (lib.generators.mkLuaInline "hl.dsp.window.kill()") { release = true; } ]; }
                 { _args = [ "SUPER + S" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('systemctl suspend')") { locked = true; release = true; } ]; }
                 { _args = [ "SUPER + F" (lib.generators.mkLuaInline "hl.dsp.layout('colresize +conf')") ]; }
-                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
-                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.75')") ]; }
-                { _args = [ "SUPER + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 1.0')") ]; }
+                { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 0.5')") ]; }
+                { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 0.75')") ]; }
+                { _args = [ "SUPER + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize 1.0')") ]; }
+                { _args = [ "SUPER + SHIFT + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
+                { _args = [ "SUPER + SHIFT + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.75')") ]; }
+                { _args = [ "SUPER + SHIFT + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 1.0')") ]; }
                 { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''
                     function()
                         local window = hl.get_active_window()
