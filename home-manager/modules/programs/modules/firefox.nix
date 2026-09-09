@@ -52,6 +52,7 @@
                 "devtools.toolbox.host" = "right";
                 "font.name.sans-serif.ja" = "Noto Sans CJK JP";
                 "intl.locale.requested" = "ja";
+                "middlemouse.paste" = false;
                 "sidebar.main.tools" = null;
                 "sidebar.verticalTabs" = true;
                 "sidebar.visibility" = "never";
