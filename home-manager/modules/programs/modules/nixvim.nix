@@ -2,19 +2,7 @@
     imports = [ inputs.nixvim.homeModules.nixvim ];
     programs.nixvim = {
         enable = true;
-        extraPlugins = [
-            pkgs.vimPlugins.onenord-nvim
-            (pkgs.vimUtils.buildVimPlugin {
-                pname = "blink-lib";
-                version = "0-unstable-2026-09-01";
-                src = pkgs.fetchFromGitHub {
-                    owner = "saghen";
-                    repo = "blink.lib";
-                    rev = "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa";
-                    hash = "sha256-CyDv8bRHjGKpn/qDMaplDBcqwQl73ZPkhjmvzkizF/I=";
-                };
-            })
-        ];
+        colorschemes.onenord.enable = true;
         defaultEditor = true;
         nixpkgs.config.allowUnfree = true;
         nixpkgs.source = pkgs.path;
@@ -36,13 +24,6 @@
             termguicolors = true;
             title = true;
         };
-        extraConfigLua = ''
-            require("onenord").setup({
-                disable = {
-                    background = true
-                }
-            })
-        '';
         autoCmd = [{
             event = [ "InsertLeave" "CmdlineLeave" ];
             callback.__raw = ''

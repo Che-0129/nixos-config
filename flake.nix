@@ -19,7 +19,7 @@
         };
         nixvim = {
             inputs.nixpkgs.follows = "nixpkgs";
-            url = "github:nix-community/nixvim";
+            url = "github:Che-0129/nixvim";
         };
         disko = {
             inputs.nixpkgs.follows = "nixpkgs";
