@@ -11,6 +11,11 @@
                 unfocused-style = "none";
                 blink = true;
             };
+            mouse-bindings = {
+                clipboard-paste = "BTN_RIGHT";
+                primary-paste = "none";
+                select-extend = "none";
+            };
         };
     };
 }
