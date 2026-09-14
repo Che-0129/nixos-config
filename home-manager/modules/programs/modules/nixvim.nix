@@ -24,14 +24,21 @@
             termguicolors = true;
             title = true;
         };
-        autoCmd = [{
+        autoCmd = [
+            {
             event = [ "InsertLeave" "CmdlineLeave" ];
             callback.__raw = ''
                 function()
                     vim.system({ "fcitx5-remote", "-c" }, { detach = true })
                 end
             '';
-        }];
+            }
+            {
+                event = [ "FileType" ];
+                pattern = [ "nix" ];
+                command = "setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab";
+            }
+        ];
         diagnostic.settings = {
             virtual_text = true;
             underline = true;
