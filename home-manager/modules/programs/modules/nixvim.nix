@@ -71,17 +71,20 @@
             blink-pairs = {
                 enable = true;
                 settings.mappings.pairs.__raw = ''
-                    {
-                        ["{"] = {
-                            {
-                                "}",
-                                open = function(ctx)
-                                    local char_after = ctx.line:sub(ctx.cursor.col + 1, ctx.cursor.col + 1)
-                                    return char_after == ""
-                                end,
-                            },
-                        },
-                    }
+                    (function()
+                        local function only_before_whitespace(ctx)
+                            local char_after = ctx.line:sub(ctx.cursor.col + 1, ctx.cursor.col + 1)
+                            return char_after == "" or char_after:match("%s")
+                        end
+
+                        return {
+                            ["{"] = { { "}", open = only_before_whitespace } },
+                            ["("] = { { ")", open = only_before_whitespace } },
+                            ["["] = { { "]", open = only_before_whitespace } },
+                            ['"'] = { { '"', open_or_close = only_before_whitespace } },
+                            ["'"] = { { "'", open_or_close = only_before_whitespace } }
+                        }
+                    end)()
                 '';
             };
             colorizer.enable = true;
