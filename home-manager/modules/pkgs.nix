@@ -13,7 +13,6 @@
     kicad
     p7zip
     payload-dumper-go
-    picotool
     qmk
     slurp
     telegram-desktop

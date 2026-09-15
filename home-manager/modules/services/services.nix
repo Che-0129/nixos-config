@@ -6,6 +6,7 @@
       allowImages = false;
     };
     playerctld.enable = true;
+    udiskie.enable = true;
   };
 }
 
