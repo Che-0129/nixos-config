@@ -1,28 +1,28 @@
 {
-    programs.fish = {
-        enable = true;
-        loginShellInit = ''start-hyprland'';
-        shellAliases = {
-            dl = "cd ~/Downloads";
-            dls = "cd ~/Downloads && ls";
-            rb = "systemctl reboot";
-            sd = "systemctl poweroff";
-            rm = "trash-put";
-            less = "bat --theme Nord -p";
-            cat = "bat --theme Nord -pp";
-            cl = "clear && ls";
-        };
-        shellInit = ''
-            function sudo
-                if test "$argv[1]" = "rm"
-                    command sudo trash-put $argv[2..-1]
-                else
-                    command sudo $argv
-                end
-            end
-            function nh
-                systemd-inhibit --what=sleep -- nh $argv
-            end
-        '';
+  programs.fish = {
+    enable = true;
+    loginShellInit = ''start-hyprland'';
+    shellAliases = {
+      dl = "cd ~/Downloads";
+      dls = "cd ~/Downloads && ls";
+      rb = "systemctl reboot";
+      sd = "systemctl poweroff";
+      rm = "trash-put";
+      less = "bat --theme Nord -p";
+      cat = "bat --theme Nord -pp";
+      cl = "clear && ls";
     };
+    shellInit = ''
+      function sudo
+        if test "$argv[1]" = "rm"
+          command sudo trash-put $argv[2..-1]
+        else
+          command sudo $argv
+        end
+      end
+      function nh
+        systemd-inhibit --what=sleep -- nh $argv
+      end
+    '';
+  };
 }
