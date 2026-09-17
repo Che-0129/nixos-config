@@ -1,7 +1,6 @@
-{ inputs, pkgs, ... }: {
+{
   programs.hyprtoolkit = {
     enable = true;
-    package = inputs.hyprtoolkit.packages.${pkgs.stdenv.hostPlatform.system}.hyprtoolkit;
     settings = {
       background = "0xFF383C4A";
       accent = "0xFF5294E2";
