@@ -20,6 +20,11 @@
   };
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    kvantum = {
+      enable = true;
+      settings.General.theme = "KvArcDark";
+    };
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 }
