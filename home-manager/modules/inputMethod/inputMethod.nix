@@ -45,5 +45,4 @@
     };
     type = "fcitx5";
   };
-  home.file.".config/mozc/config1.db".source = ./config1.db;
 }

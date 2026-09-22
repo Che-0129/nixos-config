@@ -3,6 +3,7 @@
     ./modules/gimp.nix
     ./modules/hypr/hypr.nix
     ./modules/inputMethod/inputMethod.nix
+    ./modules/inputMethod/mozc.nix
     ./modules/pkgs.nix
     ./modules/programs/programs.nix
     ./modules/services/services.nix
