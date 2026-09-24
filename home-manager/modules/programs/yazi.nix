@@ -18,6 +18,7 @@
           }
         ];
       };
+      tasks.image_bound = [0 0];
     };
   };
 }
