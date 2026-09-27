@@ -16,6 +16,7 @@
     ./modules/programs/fish.nix
     ./modules/programs/foot.nix
     ./modules/programs/nixvim.nix
+    ./modules/programs/ssh.nix
     ./modules/programs/thunderbird.nix
     ./modules/programs/yazi.nix
     ./modules/programs/zoxide.nix
