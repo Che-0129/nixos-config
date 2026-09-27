@@ -6,6 +6,7 @@
         lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "playerctl pause ; loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
+        unlock_cmd = "hyprctl dispatch focuswindow activewindow";
       };
       listener = [
         {
