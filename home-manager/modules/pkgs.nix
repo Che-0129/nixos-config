@@ -11,7 +11,7 @@
     grim
     jujutsu
     kicad
-    opencode
+    omp
     p7zip
     payload-dumper-go
     qmk
