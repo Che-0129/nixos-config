@@ -1,6 +1,7 @@
-{ lib, ... }: {
+{ inputs, lib, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [ "${inputs.hyprfm4.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/hyprfm4.so" ];
     settings = {
       config = {
         general = {
