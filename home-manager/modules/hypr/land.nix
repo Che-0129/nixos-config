@@ -76,18 +76,7 @@
         { _args = [ "SUPER + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 1.0')") ]; }
         { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''hl.dsp.window.drag()'') { mouse = true; } ]; }
         { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline ''hl.dsp.window.resize()'') { mouse = true; } ]; }
-        { _args = [ "SUPER + W" (lib.generators.mkLuaInline ''
-          function()
-            local time = os.date("%m/%d (%a) %R")
-            hl.notification.create({
-              text = "🕓️ "..time,
-              duration = 3000,
-              font_size = 24,
-              color = "rgb(5294e2)",
-              icon = "NONE"
-             })
-          end
-        '') ]; }
+        { _args = [ "SUPER + W" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprosd --clock')") ]; }
       ];
       device = [
         {
@@ -146,7 +135,7 @@
           animation = "fade";
         }
         {
-          match.namespace = "syshud";
+          match.namespace = "hyprosd";
           animation = "slide, top";
         }
       ];

@@ -5,6 +5,7 @@
     ./modules/hypr/land.nix
     ./modules/hypr/launcher.nix
     ./modules/hypr/lock.nix
+    ./modules/hypr/osd.nix
     ./modules/hypr/paper.nix
     ./modules/hypr/polkitagent.nix
     ./modules/hypr/toolkit.nix
@@ -22,7 +23,6 @@
     ./modules/programs/zoxide.nix
     ./modules/services/cliphist.nix
     ./modules/services/playerctld.nix
-    ./modules/services/syshud.nix
     ./modules/services/udiskie.nix
     ./modules/themes/themes.nix
   ];

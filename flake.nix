@@ -5,6 +5,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
+    hyprosd = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Che-0129/hyprosd";
+    };
     nixvim = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Che-0129/nixvim";
