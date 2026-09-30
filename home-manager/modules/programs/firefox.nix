@@ -1,7 +1,8 @@
-{
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
     languagePacks = [ "ja" ];
+    package = (pkgs.callPackage ./firefox-translate-ctx.nix {});
     policies = {
       ExtensionSettings = {
         "arc-dark-theme@afnankhan" = {
@@ -43,7 +44,10 @@
         "browser.ai.control.sidebarChatbot" = "blocked";
         "browser.newtabpage.activity-stream.nova.enabled" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.nova.enabled" = false;
         "browser.tabs.closeWindowWithLastTab" = false;
+        "browser.tabs.groups.enabled" = false;
+        "browser.tabs.splitView.enabled" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.uiCustomization.navBarWhenVerticalTabs" = [ "urlbar-container" "downloads-button" ];
         "browser.urlbar.suggest" = false;
@@ -78,8 +82,16 @@
         #vertical-spacer {
           display: none !important;
         }
+
       '';
-      userContent = ''.personalizeButtonWrapper { display: none; }'';
+      userContent = ''
+        .personalizeButtonWrapper { display: none; }
+        @-moz-document url-prefix("about:newtab"), url-prefix("about:home") {
+          .top-site-outer a:focus .tile {
+            outline: 2px solid #5294e2 !important;
+          }
+        }
+      '';
     };
   };
 }
