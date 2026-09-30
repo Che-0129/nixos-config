@@ -7,7 +7,7 @@
         general = {
           border_size = 0;
           gaps_in = 4;
-          gaps_out = 12;
+          gaps_out = 8;
           layout = "scrolling";
           no_focus_fallback = true;
         };
@@ -75,8 +75,8 @@
         { _args = [ "SUPER + comma" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.5')") ]; }
         { _args = [ "SUPER + period" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 0.75')") ]; }
         { _args = [ "SUPER + slash" (lib.generators.mkLuaInline "hl.dsp.layout('colresize all 1.0')") ]; }
-        { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline ''hl.dsp.window.drag()'') { mouse = true; } ]; }
-        { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline ''hl.dsp.window.resize()'') { mouse = true; } ]; }
+        { _args = [ "SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") { mouse = true; } ]; }
+        { _args = [ "SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") { mouse = true; } ]; }
         { _args = [ "SUPER + W" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprosd --clock')") ]; }
       ];
       device = [
@@ -95,7 +95,7 @@
         {
           _args = [{
             name = "che-0129-graphium34-mouse";
-            sensitivity = -0.8;
+            sensitivity = -0.85;
           }];
         }
       ];
