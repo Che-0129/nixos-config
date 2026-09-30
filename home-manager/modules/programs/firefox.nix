@@ -2,7 +2,7 @@
   programs.firefox = {
     enable = true;
     languagePacks = [ "ja" ];
-    package = (pkgs.callPackage ./firefox-translate-ctx.nix {});
+    package = import ./firefox-translate-ctx.nix { inherit pkgs; };
     policies = {
       ExtensionSettings = {
         "arc-dark-theme@afnankhan" = {
