@@ -24,7 +24,7 @@
     ./modules/services/cliphist.nix
     ./modules/services/playerctld.nix
     ./modules/services/udiskie.nix
-    ./modules/themes/themes.nix
+    ./modules/themes.nix
   ];
   home.stateVersion = "26.11";
   xdg.userDirs = {
