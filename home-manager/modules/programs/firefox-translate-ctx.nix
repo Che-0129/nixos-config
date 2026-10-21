@@ -9,12 +9,12 @@ let
     (pkgs.fetchurl {
       url = "https://phabricator.services.mozilla.com/D326385?download=true";
       name = "D326385.patch";
-      hash = "sha256-Da8soTORHLCNRqlie2DMpGCcZJCwlVpqIVRnlwuXwWY=";
+      hash = "sha256-x+eiW5+DeekbHiz2oFwPtlq/3eqKTkWgy1Gz9cN/tp0=";
     })
     (pkgs.fetchurl {
       url = "https://phabricator.services.mozilla.com/D328732?download=true";
       name = "D328732.patch";
-      hash = "sha256-GLtSuy64qCMSGviUaYxsumRdHFo4rWggqFhKVyK8Z1E=";
+      hash = "sha256-IdOi0O4IwiJoXzyKTNkxUgJ4IykId5Z0+UYugvl2OrU=";
     })
   ];
 
@@ -50,7 +50,38 @@ let
 
       for p in ${toString patches}; do
         filterdiff -i "*nsContextMenu.sys.mjs" "$p" \
-          | patch --no-backup-if-mismatch "$D/nsContextMenu.sys.mjs"
+          | patch --no-backup-if-mismatch "$D/nsContextMenu.sys.mjs" || true
+      done
+      rm -f "$D"/*.rej "$D"/*.orig
+
+      substituteInPlace "$D/nsContextMenu.sys.mjs" \
+        --replace-fail '  #translationsLangPairPromise;' \
+'  #translationsLangPairPromise;
+
+  /**
+   * The promise of the language pair to translate the page with when the
+   * translate-page menuitem is activated, resolving to null if no target
+   * language could be resolved.
+   *
+   * @type {Promise<{sourceLanguage: string, targetLanguage: string} | null>}
+   */
+  #translatePageLangPairPromise;
+
+  /**
+   * Aborted when this menu is hidden. Menu items can check its signal to
+   * discard asynchronous work that finishes after the menu that started it
+   * has closed, since the items are reused by whichever menu opens next.
+   *
+   * @type {AbortController}
+   */
+  #menuHiddenController = new AbortController();'
+
+      for s in '#translatePageLangPairPromise;' \
+               '#menuHiddenController = new AbortController' \
+               '#menuHiddenController.abort()' \
+               'translatePage'; do
+        grep -q -- "$s" "$D/nsContextMenu.sys.mjs" \
+          || { echo "verify failed: nsContextMenu.sys.mjs lacks $s"; exit 1; }
       done
 
       cat ${translateFtl} >> "$FTL"
@@ -67,9 +98,15 @@ let
       zip -qr9XD "$OMNI" .
 
       check() {
-        unzip -p "$OMNI" "$1" 2>/dev/null | grep -q -- "$2" \
+        local content
+        content=$(unzip -p "$OMNI" "$1" 2>/dev/null || true)
+        grep -q -- "$2" <<<"$content" \
           || { echo "verify failed: $1 lacks $2"; exit 1; }
       }
+      check "$D/nsContextMenu.sys.mjs" '#menuHiddenController = new AbortController'
+      check "$D/browser.xhtml" 'context-translate-page'
+      check "$D/browser-context.js" 'context-translate-page'
+      check "$FTL" 'main-context-menu-translate-page'
 
       ln -sf ../lib/firefox/firefox "$out/bin/firefox"
     '';
