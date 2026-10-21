@@ -23,6 +23,17 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        mozc = prev.mozc.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            find src/gui -name '*.ui' -exec sed -i 's|::mozc::|mozc::|g' {} +
+          '';
+        });
+      })
+    ];
+  };
   system.stateVersion = "26.11";
 }
