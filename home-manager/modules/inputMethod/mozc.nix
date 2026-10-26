@@ -16,7 +16,7 @@ let
       preedit_method: ROMAN
       session_keymap: CUSTOM
       custom_keymap_table: "status\tkey\tcommand\nComposition\tBackspace\tBackspace\nComposition\tDelete\tDelete\nComposition\tDown\tMoveCursorToEnd\nComposition\tEnd\tMoveCursorToEnd\nComposition\tEnter\tCommit\nComposition\tF10\tConvertToHalfAlphanumeric\nComposition\tF2\tConvertWithoutHistory\nComposition\tF6\tConvertToHiragana\nComposition\tF7\tConvertToFullKatakana\nComposition\tF8\tConvertToHalfWidth\nComposition\tF9\tConvertToFullAlphanumeric\nComposition\tHome\tMoveCursorToBeginning\nComposition\tLeft\tMoveCursorLeft\nComposition\tRight\tMoveCursorRight\nComposition\tSpace\tConvert\nComposition\tTab\tPredictAndConvert\nComposition\tVirtualLeft\tMoveCursorLeft\nComposition\tVirtualRight\tMoveCursorRight\nComposition\tVirtualEnter\tCommit\nConversion\tBackspace\tCancel\nConversion\tDelete\tCancel\nConversion\tDown\tConvertNext\nConversion\tEnd\tSegmentFocusLast\nConversion\tEnter\tCommit\nConversion\tF10\tConvertToHalfAlphanumeric\nConversion\tF6\tConvertToHiragana\nConversion\tF7\tConvertToFullKatakana\nConversion\tF8\tConvertToHalfWidth\nConversion\tF9\tConvertToFullAlphanumeric\nConversion\tHome\tSegmentFocusFirst\nConversion\tLeft\tSegmentFocusLeft\nConversion\tRight\tSegmentFocusRight\nConversion\tSpace\tConvertNext\nConversion\tTab\tPredictAndConvert\nConversion\tUp\tConvertPrev\nConversion\tVirtualLeft\tSegmentWidthShrink\nConversion\tVirtualRight\tSegmentWidthExpand\nConversion\tVirtualEnter\tCommitOnlyFirstSegment\nPrecomposition\tBackspace\tRevert\nPrecomposition\tSpace\tInsertSpace\nSuggestion\tDown\tPredictAndConvert\nComposition\tASCII\tInsertCharacter\nComposition\tKanji\tIMEOff\nComposition\tOFF\tIMEOff\nComposition\tON\tIMEOn\nConversion\tF1\tReportBug\nConversion\tF3\tReportBug\nConversion\tKanji\tIMEOff\nConversion\tOFF\tIMEOff\nConversion\tON\tIMEOn\nDirectInput\tKanji\tIMEOn\nDirectInput\tON\tIMEOn\nPrecomposition\tASCII\tInsertCharacter\nPrecomposition\tKanji\tIMEOff\nPrecomposition\tOFF\tIMEOff\nPrecomposition\tON\tIMEOn\n"
-      punctuation_method: KUTEN_TOUTEN
+      punctuation_method: TOUTEN_KUTEN
       symbol_method: CORNER_BRACKET_MIDDLE_DOT
       space_character_form: FUNDAMENTAL_INPUT_MODE
       use_keyboard_to_change_preedit_method: false
@@ -87,7 +87,6 @@ let
         preedit_character_form: FULL_WIDTH
         conversion_character_form: LAST_FORM
       }
-      use_auto_ime_turn_off: true
       shift_key_mode_switch: ASCII_INPUT_MODE
       numpad_character_form: NUMPAD_HALF_WIDTH
       use_auto_conversion: false
