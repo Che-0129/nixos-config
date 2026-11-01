@@ -53,12 +53,12 @@
         { _args = [ "SUPER + space" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('hyprlauncher')") ]; }
         { _args = [ "SUPER + E" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('foot -e yazi')") ]; }
         { _args = [ "SUPER + V" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('cliphist list | hyprlauncher -m | cliphist decode | wl-copy')") ]; }
-        { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('slurp | grim -g - ~/Downloads/Screenshot_$(date +%Y-%m-%d%H%M).png')") ]; }
+        { _args = [ "SUPER + P" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - ~/Downloads/Screenshot_$(date +%Y-%m-%d%H%M).png')") ]; }
         { _args = [ "XF86AudioLowerVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-')") ]; }
         { _args = [ "XF86AudioRaiseVolume" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+')") ]; }
         { _args = [ "XF86AudioMute" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_SINK@ toggle')") ]; }
-        { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%-')") { locked = true; } ]; }
-        { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('brightnessctl set 5%+')") { locked = true; } ]; }
+        { _args = [ "XF86MonBrightnessDown" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.brightnessctl}/bin/brightnessctl set 5%-')") { locked = true; } ]; }
+        { _args = [ "XF86MonBrightnessUp" (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.brightnessctl}/bin/brightnessctl set 5%+')") { locked = true; } ]; }
         { _args = [ "SUPER + H" (lib.generators.mkLuaInline "hl.dsp.layout('focus l')") ]; }
         { _args = [ "SUPER + J" (lib.generators.mkLuaInline "hl.dsp.layout('focus d')") ]; }
         { _args = [ "SUPER + K" (lib.generators.mkLuaInline "hl.dsp.layout('focus u')") ]; }
