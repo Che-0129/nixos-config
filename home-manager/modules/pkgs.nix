@@ -2,8 +2,6 @@
   home.packages = with pkgs; [
     android-tools
     blender
-    discord
-    dos2unix
     kicad
     p7zip
     payload-dumper-go
