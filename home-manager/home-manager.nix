@@ -12,10 +12,14 @@
     ./modules/inputMethod/fcitx5.nix
     ./modules/inputMethod/mozc.nix
     ./modules/pkgs.nix
+    ./modules/programs/aria2.nix
+    ./modules/programs/bat.nix
     ./modules/programs/eza.nix
     ./modules/programs/firefox.nix
     ./modules/programs/fish.nix
     ./modules/programs/foot.nix
+    ./modules/programs/git.nix
+    ./modules/programs/jujutsu.nix
     ./modules/programs/nixvim.nix
     ./modules/programs/pi.nix
     ./modules/programs/ssh.nix
