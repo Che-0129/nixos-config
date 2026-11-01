@@ -9,10 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Che-0129/hyprosd";
     };
-    hyprfm4 = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:Che-0129/hyprfm4";
-    };
     nixvim = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixvim";

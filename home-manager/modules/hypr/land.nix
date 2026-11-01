@@ -1,7 +1,6 @@
-{ inputs, lib, pkgs, ... }: {
+{ pkgs, lib, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ "${inputs.hyprfm4.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/hyprfm4.so" ];
     settings = {
       config = {
         general = {
@@ -21,6 +20,7 @@
           repeat_delay = 300;
           accel_profile = "adaptive";
           follow_mouse = 2;
+          swallow_focus_click = true;
           touchpad = {
             natural_scroll = true;
             scroll_factor = 0.4;
