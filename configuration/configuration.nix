@@ -13,6 +13,7 @@
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
   nix.settings = {
     auto-optimise-store = true;
+    cores = 4;
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [
       "https://nix-community.cachix.org"
