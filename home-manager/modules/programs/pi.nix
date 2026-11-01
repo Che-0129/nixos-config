@@ -32,36 +32,42 @@
       api = "openai-completions";
       apiKey = "$APMIX_API_KEY";
       baseUrl = "https://api.apmix.ai/v1";
+      compat.sendSessionAffinityHeaders = true;
       models = [
+        {
+          id = "deepseek-v4.1-flash-1017";
+          name = "DeepSeek V4.1 Flash 1017";
+          contextWindow = 1000000;
+          maxTokens = 65536;
+          reasoning = true;
+        }
+        {
+          id = "hy4";
+          name = "Hy4";
+          contextWindow = 1000000;
+          maxTokens = 65536;
+          reasoning = true;
+        }
         {
           id = "glm-5.3-flash";
           name = "GLM-5.3 Flash";
           contextWindow = 1000000;
           maxTokens = 65536;
+          reasoning = true;
         }
         {
-          id = "deepseek-v4.1-flash";
-          name = "DeepSeek V4.1 Flash";
+          id = "nemotron-3.5-super-vl";
+          name = "Nemotron 3.5 Super VL";
           contextWindow = 1000000;
           maxTokens = 65536;
-        }
-        {
-          id = "claude-sonnet-5-5";
-          name = "Claude Sonnet 5.5";
-          contextWindow = 1000000;
-          maxTokens = 65536;
-        }
-        {
-          id = "mimo-v2.6-flash";
-          name = "MiMo V2.6 Flash";
-          contextWindow = 1000000;
-          maxTokens = 65536;
+          reasoning = true;
         }
       ];
     };
     settings = {
       defaultThinkingLevel = "low";
       packages = [
+        "git:github.com/microsoft/TokenEconomizer"
         "npm:@juicesharp/rpiv-ask-user-question"
         "npm:pi-cache-optimizer"
         "npm:pi-hashline-edit-pro"
@@ -70,14 +76,15 @@
         "npm:pi-web-access"
       ];
       subagents = {
-        defaultModel = "mimo-v2.6-flash";
-        defaultThinking = "medium";
+        defaultModel = "nemotron-3.5-super-vl";
+        defaultThinking = "off";
         defaultSubagentContext = "fresh";
-        globalConcurrencyLimit = 2;
+        globalConcurrencyLimit = 3;
+        maxThinking = "high";
         maxSubagentDepth = 1;
         parallel = {
-          concurrency = 2;
-          maxTasks = 4;
+          concurrency = 3;
+          maxTasks = 6;
         };
       };
     };
@@ -93,6 +100,7 @@
     bash = {
       "awk *" = "allow";
       "command -v *" = "allow";
+      "cd *" = "allow";
       "echo *" = "allow";
       "git branch --list" = "allow";
       "git branch --show-current" = "allow";
@@ -100,10 +108,14 @@
       "git diff" = "allow";
       "git log *" = "allow";
       "git log" = "allow";
+      "git show *" = "allow";
+      "git show" = "allow";
       "git status *" = "allow";
       "git status" = "allow";
       "head *" = "allow";
       "ls *" = "allow";
+      "make" = "allow";
+      "nix-shell -p *" = "allow";
       "pwd" = "allow";
       "sed *" = "allow";
       "stat *" = "allow";
@@ -113,11 +125,16 @@
     };
     tools = {
       ask_user_question = "allow";
+      edit = "allow";
       find = "allow";
       get_search_content = "allow";
       grep = "allow";
+      insert = "allow";
       ls = "allow";
+      outline = "allow";
       read = "allow";
+      replace = "allow";
+      replace_match = "allow";
       source_check = "allow";
       subagents_status = "allow";
       web_search = "allow";
