@@ -11,6 +11,17 @@
       - Keep explanations concise and focus on the reasoning relevant to the task.
       - When the user provides new information or corrects an assumption, incorporate it immediately.
       - Do not repeat work that has already been completed.
+
+      ## Subagent Delegation
+      - Actively delegate suitable tasks to subagents instead of doing everything yourself.
+      - Prefer subagents for codebase exploration, research, independent analysis, and test review.
+      - Run independent subagent tasks in parallel when practical.
+      - Give each subagent a clear, narrow objective and sufficient context.
+      - Avoid duplicating work between yourself and subagents.
+      - Handle trivial tasks directly when delegation would add unnecessary overhead.
+      - Review subagent findings before using them to make decisions.
+      - Keep responsibility for planning, integration, and final verification.
+      - Delegate implementation tasks when their scope is well-defined and can be completed independently.
     '';
     context = ''
       ## Environment
@@ -28,43 +39,13 @@
       - Never commit, push, or publish changes without explicit permission
       - Do not discard unrelated user changes
     '';
-    models.providers.apmix = {
-      api = "openai-completions";
-      apiKey = "$APMIX_API_KEY";
-      baseUrl = "https://api.apmix.ai/v1";
-      compat.sendSessionAffinityHeaders = true;
-      models = [
-        {
-          id = "deepseek-v4.1-flash-1017";
-          name = "DeepSeek V4.1 Flash 1017";
-          contextWindow = 1000000;
-          maxTokens = 65536;
-          reasoning = true;
-        }
-        {
-          id = "hy4";
-          name = "Hy4";
-          contextWindow = 1000000;
-          maxTokens = 65536;
-          reasoning = true;
-        }
-        {
-          id = "glm-5.3-flash";
-          name = "GLM-5.3 Flash";
-          contextWindow = 1000000;
-          maxTokens = 65536;
-          reasoning = true;
-        }
-        {
-          id = "nemotron-3.5-super-vl";
-          name = "Nemotron 3.5 Super VL";
-          contextWindow = 1000000;
-          maxTokens = 65536;
-          reasoning = true;
-        }
-      ];
-    };
     settings = {
+      enabledModels = [
+        "openai-codex/gpt-*"
+        "deepseek/deepseek-v4.1-flash-1017:batch"
+        "anthropic/claude-haiku-5.5:batch"
+        "nvidia/nemotron-3.5-super-vl:free"
+      ];
       defaultThinkingLevel = "low";
       packages = [
         "git:github.com/microsoft/TokenEconomizer"
@@ -76,7 +57,13 @@
         "npm:pi-web-access"
       ];
       subagents = {
-        defaultModel = "nemotron-3.5-super-vl";
+        agentOverrides = {
+          researcher.advertise = true;
+          reviewer.advertise = true;
+          scout.advertise = true;
+          worker.advertise = true;
+        };
+        defaultModel = "gpt-6-luna";
         defaultThinking = "off";
         defaultSubagentContext = "fresh";
         globalConcurrencyLimit = 3;
@@ -136,6 +123,7 @@
       replace = "allow";
       replace_match = "allow";
       source_check = "allow";
+      subagents_enable = "allow";
       subagents_status = "allow";
       web_search = "allow";
     };
