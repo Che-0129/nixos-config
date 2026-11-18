@@ -47,6 +47,7 @@
         "nvidia/nemotron-3.5-super-vl:free"
       ];
       defaultThinkingLevel = "low";
+      fullscreenCopyOnSelect = false;
       packages = [
         "git:github.com/microsoft/TokenEconomizer"
         "npm:@juicesharp/rpiv-ask-user-question"
