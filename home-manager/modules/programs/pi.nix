@@ -41,13 +41,12 @@
     '';
     settings = {
       enabledModels = [
-        "openai-codex/gpt-*"
+        "openai-codex/gpt-6*"
         "deepseek/deepseek-v4.1-flash-1017:batch"
         "anthropic/claude-haiku-5.5:batch"
         "nvidia/nemotron-3.5-super-vl:free"
       ];
       defaultThinkingLevel = "low";
-      fullscreenCopyOnSelect = false;
       packages = [
         "git:github.com/microsoft/TokenEconomizer"
         "npm:@juicesharp/rpiv-ask-user-question"
@@ -75,6 +74,7 @@
           maxTasks = 6;
         };
       };
+      tuiMode = "regular";
     };
   };
   home.file.".pi/agent/pi-permissions.jsonc".text = builtins.toJSON {
