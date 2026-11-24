@@ -46,6 +46,8 @@
         "anthropic/claude-haiku-5.5:batch"
         "nvidia/nemotron-3.5-super-vl:free"
       ];
+      defaultProvider = "openai-codex";
+      defaultModel = "gpt-6.2-astra";
       defaultThinkingLevel = "low";
       packages = [
         "git:github.com/microsoft/TokenEconomizer"
@@ -63,7 +65,7 @@
           scout.advertise = true;
           worker.advertise = true;
         };
-        defaultModel = "gpt-6-luna";
+        defaultModel = "openai-codex/gpt-6-luna";
         defaultThinking = "off";
         defaultSubagentContext = "fresh";
         globalConcurrencyLimit = 3;
