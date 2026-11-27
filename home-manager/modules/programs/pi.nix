@@ -22,6 +22,12 @@
       - Review subagent findings before using them to make decisions.
       - Keep responsibility for planning, integration, and final verification.
       - Delegate implementation tasks when their scope is well-defined and can be completed independently.
+
+      ## Language
+      - Respond to the user in Japanese unless explicitly requested otherwise.
+      - Use natural Japanese while preserving technical terms in English where appropriate.
+      - Keep code, identifiers, comments, and documentation consistent with the project's existing language conventions.
+      - Apply the same language preference to user-facing responses based on subagent findings.
     '';
     context = ''
       ## Environment
@@ -52,6 +58,7 @@
       packages = [
         "git:github.com/microsoft/TokenEconomizer"
         "npm:@juicesharp/rpiv-ask-user-question"
+        "npm:oh-my-tutor"
         "npm:pi-cache-optimizer"
         "npm:pi-hashline-edit-pro"
         "npm:pi-permission-system"
