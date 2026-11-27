@@ -9,12 +9,12 @@ let
     (pkgs.fetchurl {
       url = "https://phabricator.services.mozilla.com/D326385?download=true";
       name = "D326385.patch";
-      hash = "sha256-P3nsQ1gK9APrBKJovBgdK0UTXzWlyMrSyL2KRNrxYXs=";
+      hash = "sha256-hXjARSNljFqLAZ5QWe3cZCYgYQK/oEzaosfbp6WPXBY=";
     })
     (pkgs.fetchurl {
       url = "https://phabricator.services.mozilla.com/D328732?download=true";
       name = "D328732.patch";
-      hash = "sha256-wvcehvs+cbv01/HzIPbXUW7BhNyjWNIAPMoMA2tiaKI=";
+      hash = "sha256-YEtA1LsrMmc8HBbdusjX3+5UWpBQjuMr1UlIUYpaSD0=";
     })
   ];
 
